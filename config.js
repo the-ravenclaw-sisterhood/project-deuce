@@ -1,13 +1,13 @@
 let config = {
     local: {
-        mysql: process.env.DB_URl,
-        api_keys: {}
+        mysql:{
+            url: process.env.DB_URL
+        },
+        apiKeys:{}
     },
-
     prod: {
-        mysql: {},
-        api_keys: {}
+        mysql:{},
+        apiKeys:{}
     }
 };
-
-module.exports = config[process.env.APP_ENV || "LOCAL"];
+module.exports = config[process.env.APP_ENV || 'local'];
