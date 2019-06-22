@@ -1,0 +1,26 @@
+{
+  "name": "project-deuce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-ravenclaw-sisterhood/project-deuce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-ravenclaw-sisterhood/project-deuce/issues"
+  },
+  "homepage": "https://github.com/the-ravenclaw-sisterhood/project-deuce#readme",
+  "dependencies": {
+    "env": "0.0.2",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
