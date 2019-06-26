@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Our Styling Sheet -->
+    <!-- <link rel="stylesheet" href="../public/assets/"> -->
     <!-- Jquery Link -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
@@ -135,16 +137,16 @@
             width: 100%;
             padding: 50px;
             height: 150px;
-            text-align:center;
+            text-align: center;
         }
 
-        .userBtn{
+        #loginBtn {
             padding: 15px;
             margin-right: 20px;
             border-radius: 20px;
         }
 
-        .userBtn2{
+        #signUpBtn {
             padding: 15px;
             margin-left: 20px;
             border-radius: 20px;
@@ -157,9 +159,12 @@
             text-align: center;
         }
 
-
-
         /* About style END */
+
+        /* Modal Style BEGIN */
+
+
+        /* Modal Stle END */
     </style>
 
 </head>
@@ -173,9 +178,9 @@
                             class="hide-on-small-only">&nbsp;Ya</span></a>
                     <ul class="right hide-on-med-and-down">
 
-                        <li><a href="#" target="_blank">Login</a></li>
+                        <li><a data-target="modal1" class="modal-trigger" href="#modal1">Login</a></li>
                         <li>|</li>
-                        <li><a href="#" target="_blank">Sign Up</a></li>
+                        <li><a data-target="modal2" class="modal-trigger" href="#modal1">Sign Up</a></li>
 
                     </ul>
                 </div>
@@ -196,7 +201,7 @@
 
         <div class="flow-text">
 
-            <div class="container">
+            <!-- <div class="container">
                 <div class="row">
 
 
@@ -214,13 +219,52 @@
                             <p>Some content, some content, some content</p>
                         </div>
                         <div class="box4">
-                            <button class="userBtn"> Login </button>
-                            <button class="userBtn2"> Sign Up </button>
+                            <button data-target="modal1" class="modal-trigger" href="#modal1" id="loginBtn"> Login
+                            </button>
+                            <button data-target="modal2" class="modal-trigger" href="#modal1" id="signUpBtn"> Sign Up
+                            </button>
                         </div>
-
                     </div>
 
 
+                </div>
+            </div> -->
+
+            <div class="parallax-container">
+                <div class="parallax"><img src="../public/assets/images/background_app.jpg"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="grey-text text-darken-3 lighten-3">This will show some content explaining the app to
+                        the user.
+                    </p>
+                </div>
+            </div>
+            <div class="parallax-container">
+                <div class="parallax"><img src="../public/assets/images/undraw_social_influencer_sgsv.png"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="grey-text text-darken-3 lighten-3">This will show some content explaining the app to
+                        the user.
+                    </p>
+                </div>
+            </div>
+            <div class="parallax-container">
+                <div class="parallax"><img src="../public/assets/images/undraw_social_influencer_sgsv.png"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="grey-text text-darken-3 lighten-3">This will show some content explaining the app to
+                        the user.
+                    </p>
+                    <button data-target="modal1" class="modal-trigger" href="#modal1" id="loginBtn"> Login
+                    </button>
+                    <button data-target="modal2" class="modal-trigger" href="#modal1" id="signUpBtn"> Sign Up
+                    </button>
                 </div>
             </div>
 
@@ -228,45 +272,149 @@
 
     </section>
 
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Lets Login</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Create Your Account</h4>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="username" type="text" class="validate">
+                        <label for="user_name">Username</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="row">
+        <form class="col s12">
+            
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+        
+        </form>
+    </div> -->
+
+
+
+    <!-- <form class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="username" type="username" class="validate">
+                <label for="username">Username</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+
+    </form> -->
+
+
 
 </body>
 
 <script>
 
-    // $(document).ready(function () {
-    //     $('input#input_text, textarea#textarea2').characterCounter();
-    // });
-    //Change pos/background/padding/add shadow on nav when scroll event happens 
+    $(document).ready(function () {
 
-    // $(document).ready(function () {
+        $('.modal').modal();
 
-        // MODAL
-
-
-    //     $('.sidenav').sidenav();
-    //     $('.fixed-action-btn').floatingActionButton();
-    //     $('.tooltipped').tooltip();
-    // });
-
-    // var header = $('header');
-    // var range = 200;
-
-    // $(window).on('scroll', function () {
-
-    //     var scrollTop = $(this).scrollTop(),
-    //         height = header.outerHeight(),
-    //         offset = height / 1.1,
-    //         calc = 1 - (scrollTop - offset + range) / range;
-
-    //     header.css({ 'opacity': calc });
-
-    //     if (calc > '1') {
-    //         header.css({ 'opacity': 1 });
-    //     } else if (calc < '0') {
-    //         header.css({ 'opacity': 0 });
-    //     }
-
-    // });
+    });
 
 </script>
 
