@@ -4,6 +4,7 @@ var authorizer = require("./controllers/config/authorizer");
 module.exports = function(app) {
     app.post("/api/user", function(request, response) {
         user.create(request, response);
+        console.log(request, response);
     });
     app.post("/api/user/login", function(request, response) {
         user.login(request, response);
