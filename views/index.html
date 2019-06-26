@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Jquery Link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>InfluenceYa</title>
+
+    <style>
+        /* Header style BEGIN */
+        nav {
+            z-index: 3;
+        }
+
+        header {
+            z-index: 2;
+        }
+
+        #nav-bg {
+            z-index: 1;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+        }
+
+        header {
+            position: relative;
+            background-color: black;
+            padding: 1em;
+            height: 100vh;
+        }
+
+        header:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("../public/assets/images/background_app.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 65% 50%;
+            opacity: 0.4;
+        }
+
+        #nav-bg {
+            background: #1a181f;
+            position: fixed;
+            height: 65px;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        header h2 {
+            font-size: 2em;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            padding-top: 30vh;
+        }
+
+        header h1 {
+            font-size: 4em;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            /* padding-top: 30vh; */
+        }
+
+        /* Header style END */
+
+        /* About style BEGIN */
+        #about {
+            background: #202124;
+            height: 100%;
+            padding: 5em 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .box {
+            border-radius: 15px;
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 500px;
+            margin-bottom: 20px;
+            background-image: url("../public/assets/images/mountain_test.jpg");
+        }
+
+        .box2 {
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 500px;
+            margin-bottom: 20px;
+            background-image: url("../public/assets/images/mountain_test.jpg");
+        }
+
+        .box3 {
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 500px;
+            margin-bottom: 20px;
+            background-image: url("../public/assets/images/mountain_test.jpg");
+        }
+
+        .box4 {
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 150px;
+            text-align:center;
+        }
+
+        .userBtn{
+            padding: 15px;
+            margin-right: 20px;
+            border-radius: 20px;
+        }
+
+        .userBtn2{
+            padding: 15px;
+            margin-left: 20px;
+            border-radius: 20px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+            text-align: center;
+        }
+
+
+
+        /* About style END */
+    </style>
+
+</head>
+
+<body>
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper">
+            <div class="row">
+                <div class="col s12">
+                    <a href="#" target="_blank" class="brand-logo">Influence<span
+                            class="hide-on-small-only">&nbsp;Ya</span></a>
+                    <ul class="right hide-on-med-and-down">
+
+                        <li><a href="#" target="_blank">Login</a></li>
+                        <li>|</li>
+                        <li><a href="#" target="_blank">Sign Up</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="white-text">
+        <div class="container">
+            <h2>Welcome to</h2>
+            <h1>INFLUENCE YA</h1>
+        </div>
+    </header>
+
+    <div id='nav-bg'></div>
+
+    <section id='about'>
+
+        <div class="flow-text">
+
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="clearfix">
+                        <div class="box" style="background-color:#bbb">
+                            <h2>Box 1</h2>
+                            <p>Some content, some content, some content</p>
+                        </div>
+                        <div class="box2" style="background-color:#ccc">
+                            <h2>Box 2</h2>
+                            <p>Some content, some content, some content</p>
+                        </div>
+                        <div class="box3" style="background-color:#ccc">
+                            <h2>Box 3</h2>
+                            <p>Some content, some content, some content</p>
+                        </div>
+                        <div class="box4">
+                            <button class="userBtn"> Login </button>
+                            <button class="userBtn2"> Sign Up </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+<script>
+
+    // $(document).ready(function () {
+    //     $('input#input_text, textarea#textarea2').characterCounter();
+    // });
+    //Change pos/background/padding/add shadow on nav when scroll event happens 
+
+    // $(document).ready(function () {
+
+        // MODAL
+
+
+    //     $('.sidenav').sidenav();
+    //     $('.fixed-action-btn').floatingActionButton();
+    //     $('.tooltipped').tooltip();
+    // });
+
+    // var header = $('header');
+    // var range = 200;
+
+    // $(window).on('scroll', function () {
+
+    //     var scrollTop = $(this).scrollTop(),
+    //         height = header.outerHeight(),
+    //         offset = height / 1.1,
+    //         calc = 1 - (scrollTop - offset + range) / range;
+
+    //     header.css({ 'opacity': calc });
+
+    //     if (calc > '1') {
+    //         header.css({ 'opacity': 1 });
+    //     } else if (calc < '0') {
+    //         header.css({ 'opacity': 0 });
+    //     }
+
+    // });
+
+</script>
+
+</html>
