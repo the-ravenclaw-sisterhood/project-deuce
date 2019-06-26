@@ -1,4 +1,4 @@
-let hashpass = require("hashpass");
+let hashPass = require("hashPass");
 let uuidv1 = require("uuid/v1");
 let users = require('../models/users');
 
@@ -9,7 +9,7 @@ let user = {
         } else if (request.body.password !== request.body.password_confirm){
             response.status(400).json({'error': 'passwords do not match'});
         } else {
-            let hashedPassword = hashpass(request.body.password);
+            let hashedPassword = hashPass(request.body.password);
             let userRequest = {
                 email: request.body.email,
                 password: hashedPassword.hash,
@@ -41,7 +41,7 @@ let user = {
                 response.status(404).json({'error': 'user not found'});
             } else {
                 user = result[0];
-                loginAttempt = hashpass(request.body.password, user.salt);
+                loginAttempt = hashPass(request.body.password, user.salt);
                 if (loginAttempt.hash === user.password){
                     let uuid = uuidv1();
                     users.updateSession(user.email, uuid, function(error, result) {
