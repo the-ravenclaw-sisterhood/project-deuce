@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Our Styling Sheet -->
+    <!-- <link rel="stylesheet" href="../public/assets/"> -->
+    <!-- Jquery Link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Influence Ya</title>
+
+    <style>
+        /* Header style BEGIN */
+        nav {
+            z-index: 3;
+        }
+
+        header {
+            z-index: 2;
+        }
+
+        #nav-bg {
+            z-index: 1;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+        }
+
+        header {
+            position: relative;
+            background-color: black;
+            padding: 1em;
+            height: 100vh;
+        }
+
+        header:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("../public/assets/images/background_app.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 65% 50%;
+            opacity: 0.4;
+        }
+
+        #nav-bg {
+            background: #1a181f;
+            position: fixed;
+            height: 65px;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        header h2 {
+            font-size: 2em;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            padding-top: 30vh;
+        }
+
+        header h1 {
+            font-size: 4em;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            /* padding-top: 30vh; */
+        }
+
+        /* Header style END */
+
+        /* About style BEGIN */
+        #about {
+            background: #202124;
+            height: 100%;
+            padding: 5em 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .box {
+            border-radius: 15px;
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 500px;
+            margin-bottom: 20px;
+            background-image: url("../public/assets/images/mountain_test.jpg");
+        }
+
+        .box2 {
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 500px;
+            margin-bottom: 20px;
+            background-image: url("../public/assets/images/mountain_test.jpg");
+        }
+
+        .box3 {
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 500px;
+            margin-bottom: 20px;
+            background-image: url("../public/assets/images/mountain_test.jpg");
+        }
+
+        .box4 {
+            float: left;
+            width: 100%;
+            padding: 50px;
+            height: 150px;
+            text-align: center;
+        }
+
+        #loginBtn {
+            padding: 15px;
+            margin-right: 20px;
+            border-radius: 20px;
+        }
+
+        #signUpBtn {
+            padding: 15px;
+            margin-left: 20px;
+            border-radius: 20px;
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+            text-align: center;
+        }
+
+        /* About style END */
+
+        /* Modal Style BEGIN */
+
+
+        /* Modal Stle END */
+    </style>
+
+</head>
+
+<body>
+    <nav class="transparent z-depth-0">
+        <div class="nav-wrapper">
+            <div class="row">
+                <div class="col s12">
+                    <a href="#" target="_blank" class="brand-logo">Influence<span
+                            class="hide-on-small-only">&nbsp;Ya</span></a>
+                    <ul class="right hide-on-med-and-down">
+
+                        <li><a data-target="modal1" class="modal-trigger" href="#modal1">Login</a></li>
+                        <li>|</li>
+                        <li><a data-target="modal2" class="modal-trigger" href="#modal1">Sign Up</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="white-text">
+        <div class="container">
+            <h2>Welcome to</h2>
+            <h1>INFLUENCE YA</h1>
+        </div>
+    </header>
+
+    <div id='nav-bg'></div>
+
+    <section id='about'>
+
+        <div class="flow-text">
+
+            <!-- <div class="container">
+                <div class="row">
+
+
+                    <div class="clearfix">
+                        <div class="box" style="background-color:#bbb">
+                            <h2>Box 1</h2>
+                            <p>Some content, some content, some content</p>
+                        </div>
+                        <div class="box2" style="background-color:#ccc">
+                            <h2>Box 2</h2>
+                            <p>Some content, some content, some content</p>
+                        </div>
+                        <div class="box3" style="background-color:#ccc">
+                            <h2>Box 3</h2>
+                            <p>Some content, some content, some content</p>
+                        </div>
+                        <div class="box4">
+                            <button data-target="modal1" class="modal-trigger" href="#modal1" id="loginBtn"> Login
+                            </button>
+                            <button data-target="modal2" class="modal-trigger" href="#modal1" id="signUpBtn"> Sign Up
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div> -->
+
+            <div class="parallax-container">
+                <div class="parallax"><img src="../public/assets/images/background_app.jpg"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="grey-text text-darken-3 lighten-3">This will show some content explaining the app to
+                        the user.
+                    </p>
+                </div>
+            </div>
+            <div class="parallax-container">
+                <div class="parallax"><img src="../public/assets/images/undraw_social_influencer_sgsv.png"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="grey-text text-darken-3 lighten-3">This will show some content explaining the app to
+                        the user.
+                    </p>
+                </div>
+            </div>
+            <div class="parallax-container">
+                <div class="parallax"><img src="../public/assets/images/undraw_social_influencer_sgsv.png"></div>
+            </div>
+            <div class="section white">
+                <div class="row container">
+                    <h2 class="header">Parallax</h2>
+                    <p class="grey-text text-darken-3 lighten-3">This will show some content explaining the app to
+                        the user.
+                    </p>
+                    <button data-target="modal1" class="modal-trigger" href="#modal1" id="loginBtn"> Login
+                    </button>
+                    <button data-target="modal2" class="modal-trigger" href="#modal1" id="signUpBtn"> Sign Up
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Lets Login</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Create Your Account</h4>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="username" type="text" class="validate">
+                        <label for="user_name">Username</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="row">
+        <form class="col s12">
+            
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+        
+        </form>
+    </div> -->
+
+
+
+    <!-- <form class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="username" type="username" class="validate">
+                <label for="username">Username</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+
+    </form> -->
+
+
+
+</body>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.modal').modal();
+
+
+    });
+
+</script>
+
+</html>
