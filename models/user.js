@@ -40,7 +40,7 @@ let user = {
     },
     selectByInfluencerName: function(name, callback){
         let query = {
-            table: 'company',
+            table: 'influencer',
             where: [{name: name}]
         };
         orm.select(query, callback);
@@ -87,7 +87,7 @@ let user = {
     },
     removeInfluencerSession: function(session, callback){
         let query = {
-            table: 'company',
+            table: 'influencer',
             data: {session: null},
             where: [{session: session}]
         };

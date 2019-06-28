@@ -1,14 +1,7 @@
 var connection= require("./connection");
 
 var orm = {
-    selectWhere: function(tableInput, colToSearch, valOfCol) {
-      let queryString = "SELECT * FROM ?? WHERE ?? = ?";
-      connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
-        if (err) throw err;
-        console.log(result);
-      });
-    },
-    select: function(query, callback) {
+select: function(query, callback) {
         let queryString= "SELECT ?? FROM ??";
         let searchInputs= [query.columns || ['*'], query.table];
         if(query.where){
@@ -39,6 +32,24 @@ var orm = {
         if (err) throw err;
             console.log(result);
         });
+    },
+    insert: function(query, callback) {
+        let queryString = "INSERT INTO ?? SET ?";
+        let statement = connection.query(queryString, [query.table, query.data], function(error, result) {
+            callback(error, result);
+        });
+        if (query.debug){
+            console.log(statement.sql);
+        }
+    },
+    update: function(query, callback) {
+        let queryString = "UPDATE ?? SET ? WHERE ?";
+        let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
+            callback(error, result);
+        });
+        if (query.debug){
+            console.log(statement.sql);
+        }
     },
   };
   
