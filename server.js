@@ -9,6 +9,8 @@ app.use(express.static(__dirname + '/views')); // you should change this to be w
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+require('./routes')(app);
+
 app.listen(port);
 
 require('./routes');

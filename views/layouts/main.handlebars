@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Our Styling Sheet -->
+    <link rel="stylesheet" href="../public/assets/">
+    
+
+    <!-- Jquery Link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Influence Ya</title>
+
+</head>
+
+<body>
+
+    {{{ body }}}
+
+</body>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.modal').modal();
+
+
+        $("#loginSubmitBtn").on("click", function () {
+            var emailVerif = $("#email").val().trim();
+            var passVerif = $("#password").val().trim();
+
+            var verification = {
+                email: emailVerif,
+                password: passVerif
+            }
+
+            $.ajax("/api/company/login", {
+                type: "POST",
+                data: verification
+            }).then(
+                function () {
+                    console.log("Logged IN!");
+                }
+            )
+        });
+
+
+    });
+
+</script>
+
+</html>

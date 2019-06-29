@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Our Styling Sheet -->
+    <!-- <link rel="stylesheet" href="../public/assets/"> -->
+    <!-- Jquery Link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Influence Ya</title>
+
+    <style>
+        /* Nav Bar Styling BEGIN */
+        nav {
+            z-index: 3;
+            background: #1a181f;
+            position: fixed;
+            height: 65px;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .row .col {
+            float: left;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 .75rem;
+            min-height: 1px;
+        }
+
+        /* nav Bar Styling END */
+
+        /* Section Style BEGIN */
+
+        .busCreatePage {
+            background: #202124;
+            height: 100%;
+            padding: 5em 0;
+        }
+
+        .parallax-container {
+            height: 200px;
+        }
+
+        #followersAmount {
+            font-size: 15px;
+        }
+
+        /* Section Style END */
+
+        /* Slider Style BEGIN */
+
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #4CAF50;
+            cursor: pointer;
+        }
+
+        #priceRange {
+            font-size: 15px;
+            margin-left: 10px;
+        }
+
+        #buttonLocation {
+            text-align: center;
+        }
+
+        /* Slider Style END */
+    </style>
+
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="row">
+                <div class="col s12">
+                    <a href="../views/index.html" target="_blank" class="brand-logo">Influence<span
+                            class="hide-on-small-only">&nbsp;Ya</span></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="#">Account Settings</a></li>
+                        <li>|</li>
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Nav bar -->
+
+    <!-- Main Page -->
+
+    <section class="busCreatePage">
+
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="../public/assets/images/background_app.jpg">
+            </div>
+        </div>
+        <div class="section white">
+            <div class="row container">
+                <h2 class="header">Create Your Account</h2>
+                <br>
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">person</i>
+                            <input id="user_name" type="text" class="validate">
+                            <label for="user_name">Username</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix">people</i>
+                            <input id="input_text" type="text">
+                            <label for="input_text">About how many followers do you have?</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <div class="slidecontainer">
+                                <i class="material-icons prefix">monetization_on</i>
+                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                                <label id="priceRange" for="price_Range">
+                                    <p>Price: $<span id="demo"></span></p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s4"></div>
+                        <div class="col s4" id="buttonLocation">
+                            <a class="waves-effect waves-light btn-large blue" id="busSubmitBtn">
+                                <i class="material-icons right">done</i>Submit
+                            </a>
+                        </div>
+                        <div class="col s4"></div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- Main Page -->
+
+</body>
+
+<script>
+
+    $(document).ready(function () {
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
+
+        // $('input#input_text').characterCounter();
+
+    });
+
+</script>
+
+</html>
