@@ -23,8 +23,9 @@
     "env": "0.0.2",
     "express": "^4.17.1",
     "hashpass": "0.0.0",
-    "mysql": "^2.17.1",
+    "materialize-css": "^1.0.0-rc.2",
     "nodemon": "^1.19.1",
+    "mysql": "^2.17.1",
     "uuid": "^3.3.2",
     "uuidv1": "^1.6.14"
   }
