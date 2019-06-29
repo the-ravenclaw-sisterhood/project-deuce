@@ -5,7 +5,7 @@ var app = express();
 var port = process.env.PORT || 9000;
 var config = require('./config');
 
-require('./routes');
+require('./routes')(app);
 
 app.use(express.static(__dirname + '/views')); // you should change this to be wherever your html files are
 app.use(express.urlencoded({extended: true}));

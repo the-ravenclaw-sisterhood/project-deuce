@@ -217,6 +217,10 @@
 
     $(document).ready(function () {
         $('.collapsible').collapsible();
+
+        $.get("/api/company", function (data) {
+            console.log(data)
+        });
     });
 
 </script>
