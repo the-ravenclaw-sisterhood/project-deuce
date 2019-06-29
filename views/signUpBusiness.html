@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Compiled and minified CSS Materialize-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Our Styling Sheet -->
+    <!-- <link rel="stylesheet" href="../public/assets/"> -->
+    <!-- Jquery Link -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified JavaScript Materialize-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Influence Ya</title>
+
+    <style>
+        /* Nav Bar Styling BEGIN */
+        nav {
+            z-index: 3;
+            background: #1a181f;
+            position: fixed;
+            height: 65px;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .row .col {
+            float: left;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0 .75rem;
+            min-height: 1px;
+        }
+
+        /* nav Bar Styling END */
+
+        /* Secrtion Style BEGIN */
+
+        .busCreatePage {
+            background: #202124;
+            height: 100%;
+            padding: 5em 0;
+        }
+
+        .parallax-container {
+            height: 200px;
+        }
+
+        #buttonLocation {
+            text-align: center;
+        }
+
+        /* Section Style END */
+    </style>
+
+</head>
+
+<body>
+    <!-- Nav bar -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="row">
+                <div class="col s12">
+                    <a href="../views/index.html" target="_blank" class="brand-logo">Influence<span
+                            class="hide-on-small-only">&nbsp;Ya</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Nav bar -->
+
+    <!-- Main Page -->
+
+    <section class="busCreatePage">
+
+        <div class="parallax-container">
+            <div class="parallax">
+                <img src="../public/assets/images/background_app.jpg">
+            </div>
+        </div>
+        <div class="section white">
+            <div class="row container">
+                <h2 class="header">Create Your Account</h2>
+                <br>
+                <form class="col s12">
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">business</i>
+                            <input id="business_name" type="text" class="validate">
+                            <label for="business_name" id="business-name">Business Name</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="business-email" type="email" class="validate">
+                            <label for="business-email">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="business-password" type="password" class="validate">
+                            <label for="business-password">Password</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col s4"></div>
+                        <div class="col s4" id="buttonLocation">
+                            <a class="waves-effect waves-light btn-large blue" id="business-SubmitBtn">
+                                <i class="material-icons right">done</i>Submit
+                            </a>
+                        </div>
+                        <div class="col s4"></div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        </div>
+
+
+    </section>
+
+
+    <!-- Main Page -->
+
+</body>
+
+</html>
