@@ -165,7 +165,7 @@
 
         #modal2 {
             text-align: center;
-            
+
         }
 
         .verticalLine {
@@ -309,6 +309,14 @@
                 </form>
             </div>
 
+            <div class="row">
+                <div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action" id="loginSubmitBtn">Login
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
@@ -332,7 +340,8 @@
                                 <p>I am searching for Influencers to help get my business out there.</p>
                             </div>
                             <div class="card-action">
-                                <a href="../views/signUpBusiness.html" class="waves-effect waves-light btn blue">Create Account</a>
+                                <a href="../views/signUpBusiness.html" class="waves-effect waves-light btn blue">Create
+                                    Account</a>
                             </div>
                         </div>
                     </div>
@@ -344,7 +353,8 @@
                                 <p>I want to help businesses and do other things.</p>
                             </div>
                             <div class="card-action">
-                                <a href="../views/signUpInfluencer.html" class="waves-effect waves-light btn blue">Create Account</a>
+                                <a href="../views/signUpInfluencer.html"
+                                    class="waves-effect waves-light btn blue">Create Account</a>
                             </div>
                         </div>
                     </div>
@@ -428,6 +438,26 @@
     $(document).ready(function () {
 
         $('.modal').modal();
+
+
+        $("#loginSubmitBtn").on("click", function(){
+            var emailVerif = $("#email").val().trim();
+            var passVerif = $("#password").val().trim();
+
+            var verification = {
+                email: emailVerif,
+                password: passVerif
+            }
+
+            $.ajax("/api/company/login", {
+                type: "POST",
+                data: verification
+            }).then(
+                function(){
+                    console.log("Logged IN!");
+                }
+            )
+        });
 
 
     });
