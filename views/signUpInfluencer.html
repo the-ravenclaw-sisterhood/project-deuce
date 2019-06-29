@@ -244,14 +244,13 @@
             last_name: $("#influencer_last_name").val(),
             email: $("#influencer_email").val(),
             password: $("#influencer_password").val(),
-            followers: $("#influencer_input_followers").val(),
-            price: $(".influencer_priceRange").val(),
+            followers: Number($("#influencer_input_followers").val()),
+            price: Number($(".influencer_priceRange").val()),
 
         }
 
-        $.post("/api/friends", newUser, function (data) {
-            
-
+        $.post("/api/influencer", newUser, function(data) {
+            location.reload();
         });
     });
 </script>
