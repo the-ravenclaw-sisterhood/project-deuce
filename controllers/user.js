@@ -111,10 +111,14 @@ let user = {
                 }
             }
         });
-        console.log("influencer logged in");
     },
-    logout: function(request, response){
-        users.removeSession(request.headers['x-session-token'], function(error, result){
+    logoutCompany: function(request, response){
+        users.removeCompanySession(request.headers['x-session-token'], function(error, result){
+            response.json({'message': 'user logged out successfully'});
+        });
+    },
+    logoutInfluencer: function(request, response){
+        users.removeInfluencerSession(request.headers['x-session-token'], function(error, result){
             response.json({'message': 'user logged out successfully'});
         });
     },
