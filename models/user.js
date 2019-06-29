@@ -15,6 +15,8 @@ let user = {
             table: 'influencer',
             data: user
         };
+
+        // console.log(user);
         orm.insert(query, callback);
     },
     getCompanybyId: function(id, callback){

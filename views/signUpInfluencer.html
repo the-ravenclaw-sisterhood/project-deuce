@@ -151,28 +151,20 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="first_name" type="text" class="validate">
+                            <input id="influencer_first_name" type="text" class="validate">
                             <label for="first_name">First Name</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
-                            <input id="last_name" type="text" class="validate">
+                            <input id="influencer_last_name" type="text" class="validate">
                             <label for="last_name">Last Name</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <i class="material-icons prefix">person</i>
-                            <input id="user_name" type="text" class="validate">
-                            <label for="user_name">Username</label>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="input-field col s12">
                             <i class="material-icons prefix">email</i>
-                            <input id="email" type="email" class="validate">
+                            <input id="influencer_email" type="email" class="validate">
                             <label for="email">Email</label>
                         </div>
                     </div>
@@ -180,7 +172,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">lock</i>
-                            <input id="password" type="password" class="validate">
+                            <input id="influencer_password" type="password" class="validate">
                             <label for="password">Password</label>
                         </div>
                     </div>
@@ -188,7 +180,7 @@
                     <div class="row">
                         <div class="input-field col s4">
                             <i class="material-icons prefix">people</i>
-                            <input id="input_text" type="text">
+                            <input id="influencer_input_followers" type="text">
                             <label for="input_text">About how many followers do you have?</label>
                         </div>
                     </div>
@@ -197,8 +189,9 @@
                         <div class="input-field col s12">
                             <div class="slidecontainer">
                                 <i class="material-icons prefix">monetization_on</i>
-                                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-                                <label id="priceRange" for="price_Range">
+                                <input type="range" min="1" max="100" value="50" class="slider influencer_priceRange"
+                                    id="myRange">
+                                <label id="influencer_priceRange" for="price_Range">
                                     <p>Price: $<span id="demo"></span></p>
                                 </label>
                             </div>
@@ -208,7 +201,7 @@
                     <div class="row">
                         <div class="col s4"></div>
                         <div class="col s4" id="buttonLocation">
-                            <a class="waves-effect waves-light btn-large blue" id="busSubmitBtn">
+                            <a class="waves-effect waves-light btn-large blue" id="influencerSubmitBtn">
                                 <i class="material-icons right">done</i>Submit
                             </a>
                         </div>
@@ -229,7 +222,6 @@
 </body>
 
 <script>
-
     $(document).ready(function () {
 
         var slider = document.getElementById("myRange");
@@ -244,6 +236,23 @@
 
     });
 
+    $("#influencerSubmitBtn").on("click", function (event) {
+        console.log("click");
+
+        let newUser = {
+            first_name: $("#influencer_first_name").val(),
+            last_name: $("#influencer_last_name").val(),
+            email: $("#influencer_email").val(),
+            password: $("#influencer_password").val(),
+            followers: Number($("#influencer_input_followers").val()),
+            price: Number($(".influencer_priceRange").val()),
+
+        }
+
+        $.post("/api/influencer", newUser, function(data) {
+            location.reload();
+        });
+    });
 </script>
 
 </html>
