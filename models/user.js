@@ -17,6 +17,22 @@ let user = {
         };
         orm.insert(query, callback);
     },
+    getCompanybyId: function(id, callback){
+        let query = {
+            table: 'company',
+            columns: ['email', 'user_id', 'created', 'modified'],
+            where: [{company_id: id}]
+        };
+        orm.select(query, callback);
+    },
+    getInfluencerbyId: function(id, callback){
+        let query = {
+            table: 'influencer',
+            columns: ['email', 'user_id', 'created', 'modified'],
+            where: [{influencer_id: id}]
+        };
+        orm.select(query, callback);
+    },
     selectByCompanyEmail: function(email, callback){
         let query = {
             table: 'company',
@@ -34,21 +50,21 @@ let user = {
     selectByCompanyName: function(name, callback){
         let query = {
             table: 'company',
-            where: [{name: name}]
+            where: [{company_name: name}]
         };
         orm.select(query, callback);
     },
     selectByInfluencerName: function(name, callback){
         let query = {
             table: 'influencer',
-            where: [{name: name}]
+            where: [{influencer_name: name}]
         };
         orm.select(query, callback);
     },
     getCompany: function(session, callback){
         let query = {
             table: 'company',
-            columns: ['email', 'user_id'],
+            columns: ['email', 'company_id'],
             where: [{session: session}]
         };
         orm.select(query, callback);
@@ -56,7 +72,7 @@ let user = {
     getInfluencer: function(session, callback){
         let query= {
             table: 'influencer',
-            columns: ['email', 'user_id'],
+            columns: ['email', 'influencer_id'],
             where: [{session: session}]
         };
         orm.select(query, callback);
