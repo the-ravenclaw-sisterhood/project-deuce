@@ -20,7 +20,7 @@ let user = {
     getCompanybyId: function(id, callback){
         let query = {
             table: 'company',
-            columns: ['email', 'user_id', 'created', 'modified'],
+            columns: ['email', 'company_id'],
             where: [{company_id: id}]
         };
         orm.select(query, callback);
@@ -28,7 +28,7 @@ let user = {
     getInfluencerbyId: function(id, callback){
         let query = {
             table: 'influencer',
-            columns: ['email', 'user_id', 'created', 'modified'],
+            columns: ['email', 'influencer_id'],
             where: [{influencer_id: id}]
         };
         orm.select(query, callback);
@@ -64,7 +64,7 @@ let user = {
     getCompany: function(session, callback){
         let query = {
             table: 'company',
-            columns: ['email', 'company_id'],
+            columns: ['company_name', 'bio', 'max_price', 'email', 'company_id'],
             where: [{session: session}]
         };
         orm.select(query, callback);
@@ -72,7 +72,7 @@ let user = {
     getInfluencer: function(session, callback){
         let query= {
             table: 'influencer',
-            columns: ['email', 'influencer_id'],
+            columns: ['first_name', 'last_name', 'email', 'bio', 'followers', 'price'],
             where: [{session: session}]
         };
         orm.select(query, callback);

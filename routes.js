@@ -1,5 +1,5 @@
 var user = require("./controllers/user");
-// var authorizer = require("./controllers/config/authorizer");
+var authorizer = require("./controllers/config/authorizer");
 
 module.exports = function(app) {
     app.post("/api/company", function(request, response) {
@@ -17,18 +17,16 @@ module.exports = function(app) {
     app.delete("/api/company/login", function(request, response) {
         user.logout(request, response);
     });
-    app.get("/api/company", function(request, response) {
-        // insert authorizer.authenticateCompany
+    app.get("/api/company", authorizer.authenticateCompany, function(request, response) {
         user.getCompany(request, response);
     });
-    app.get("/api/influencer", function(request, response) {
-        // insert authorizer.authenticateInfluencer
+    app.get("/api/influencer", authorizer.authenticateInfluencer, function(request, response) {
         user.getInfluencer(request, response);
     });
-    // app.get("/api/company/:id", authorizer.authenticateCompany, function(request, response) {
-    //     user.getCompanyByID(request, response);
-    // });
-    // app.get("/api/influencer:id", authorizer.authenticateInfluencer, function(request, response) {
-    //     user.getCompanyByID(request, response);
-    // });
+    app.get("/api/company/:id", authorizer.authenticateCompany, function(request, response) {
+        user.getCompanyByID(request, response);
+    });
+    app.get("/api/influencer:id", authorizer.authenticateInfluencer, function(request, response) {
+        user.getCompanyByID(request, response);
+    });
 };
