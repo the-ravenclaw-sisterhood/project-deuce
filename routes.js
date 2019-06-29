@@ -15,7 +15,10 @@ module.exports = function(app) {
         user.loginInfluencer(request, response);
     })
     app.delete("/api/company/login", function(request, response) {
-        user.logout(request, response);
+        user.logoutCompany(request, response);
+    });
+    app.delete("/api/Influencer/login", function(request, response) {
+        user.logoutInfluencer(request, response);
     });
     app.get("/api/company", authorizer.authenticateCompany, function(request, response) {
         user.getCompany(request, response);
