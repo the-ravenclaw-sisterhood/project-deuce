@@ -35,7 +35,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-image: url("../public/assets/images/background_app.jpg");
+            background-image: url("/assets/images/background_app.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 65% 50%;
@@ -80,41 +80,10 @@
             box-sizing: border-box;
         }
 
-        .box {
-            border-radius: 15px;
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 500px;
-            margin-bottom: 20px;
-            background-image: url("../public/assets/images/mountain_test.jpg");
-        }
-
-        .box2 {
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 500px;
-            margin-bottom: 20px;
-            background-image: url("../public/assets/images/mountain_test.jpg");
-        }
-
-        .box3 {
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 500px;
-            margin-bottom: 20px;
-            background-image: url("../public/assets/images/mountain_test.jpg");
-        }
-
-        .box4 {
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 150px;
-            text-align: center;
-        }
+        /* .parallax{
+            background-image: url("../images/undraw_social_influencer_sgsv.png");
+            
+        } */
 
         #loginBtn {
             padding: 15px;

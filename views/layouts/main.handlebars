@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Our Styling Sheet -->
-    <link rel="stylesheet" href="../public/assets/">
-    
+    <link rel="stylesheet" href="/assets/css/index.css">
+
 
     <!-- Jquery Link -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -30,36 +30,5 @@
     {{{ body }}}
 
 </body>
-
-<script>
-
-    $(document).ready(function () {
-
-        $('.modal').modal();
-
-
-        $("#loginSubmitBtn").on("click", function () {
-            var emailVerif = $("#email").val().trim();
-            var passVerif = $("#password").val().trim();
-
-            var verification = {
-                email: emailVerif,
-                password: passVerif
-            }
-
-            $.ajax("/api/company/login", {
-                type: "POST",
-                data: verification
-            }).then(
-                function () {
-                    console.log("Logged IN!");
-                }
-            )
-        });
-
-
-    });
-
-</script>
 
 </html>

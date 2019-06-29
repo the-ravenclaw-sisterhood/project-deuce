@@ -1,0 +1,34 @@
+/* Nav Bar Styling BEGIN */
+nav {
+    z-index: 3;
+    background: #1a181f;
+    position: fixed;
+    height: 65px;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.row .col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    min-height: 1px;
+}
+
+/* nav Bar Styling END */
+
+/* Section Style BEGIN */
+
+.userProfile {
+    background: #202124;
+    height: 100%;
+    padding: 5em 0;
+}
+
+.parallax-container {
+    height: 200px;
+}
+
+/* Section Style END */

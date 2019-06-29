@@ -30,7 +30,7 @@
     <div class="flow-text">
 
         <div class="parallax-container">
-            <div class="parallax"><img src="../public/assets/images/background_app.jpg"></div>
+            <div class="parallax"></div>
         </div>
         <div class="section white">
             <div class="row container">
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="parallax-container">
-            <div class="parallax"><img src="../public/assets/images/undraw_social_influencer_sgsv.png"></div>
+            <div class="parallax"><img src="/assets/images/undraw_social_influencer_sgsv.png"></div>
         </div>
         <div class="section white">
             <div class="row container">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="parallax-container">
-            <div class="parallax"><img src="../public/assets/images/undraw_social_influencer_sgsv.png"></div>
+            <div class="parallax"></div>
         </div>
         <div class="section white">
             <div class="row container">
@@ -151,3 +151,35 @@
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
 </div>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.modal').modal();
+
+
+        $("#loginSubmitBtn").on("click", function () {
+            var emailVerif = $("#email").val().trim();
+            var passVerif = $("#password").val().trim();
+
+            var verification = {
+                email: emailVerif,
+                password: passVerif
+            }
+
+            $.ajax("/api/company/login", {
+                type: "POST",
+                data: verification
+            }).then(
+                function () {
+                    console.log("Logged IN!");
+                }
+            )
+        });
+
+
+    });
+
+</script>
