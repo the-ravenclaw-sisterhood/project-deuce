@@ -8,7 +8,7 @@ if (process.env.JAWSDB_URL) {
      port: 8889,
      user: 'root',
      password: 'root',
-     database: 'influence_db'
+     database: 'influence_ya'
    });
  };
 
