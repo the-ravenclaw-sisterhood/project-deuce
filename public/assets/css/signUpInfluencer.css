@@ -1,0 +1,90 @@
+ /* Nav Bar Styling BEGIN */
+ nav {
+    z-index: 3;
+    background: #1a181f;
+    position: fixed;
+    height: 65px;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.row .col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    min-height: 1px;
+}
+
+/* nav Bar Styling END */
+
+/* Section Style BEGIN */
+
+.busCreatePage {
+    background: #202124;
+    height: 100%;
+    padding: 5em 0;
+}
+
+.parallax-container {
+    height: 200px;
+}
+
+#followersAmount {
+    font-size: 15px;
+}
+
+/* Section Style END */
+
+/* Slider Style BEGIN */
+
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+#priceRange {
+    font-size: 15px;
+    margin-left: 10px;
+}
+
+#buttonLocation {
+    text-align: center;
+}
+
+/* Slider Style END */
+</style>
