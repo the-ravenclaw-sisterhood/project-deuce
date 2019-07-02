@@ -182,15 +182,13 @@
     $(document).ready(function () {
 
         $(window).scroll(function () {
-            // I just set this to trigger after 30px of scroll, use whatever you like.
             if ($(this).scrollTop() >= 30) {
                 $('#logoAni').addClass('scrolled');
             } else {
                 $('#logoAni').removeClass('scrolled');
             }
         });
-
-
+        
         $('.tooltipped').tooltip();
     });
 
