@@ -1,0 +1,107 @@
+<!-- Nav bar -->
+<nav>
+    <div class="nav-wrapper">
+        <div class="row">
+            <div class="col s12">
+                <a href="#" target="_blank" class="brand-logo">Influence<span
+                        class="hide-on-small-only">&nbsp;Ya</span></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#">Account Settings</a></li>
+                    <li>|</li>
+                    <li><a href="#">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Nav bar -->
+
+<!-- Settings page -->
+<section class="userProfile">
+
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="../public/assets/images/background_app.jpg">
+        </div>
+    </div>
+    <div class="section white">
+        <div class="row container">
+            <h2 class="header" id="companyName">Company Name</h2>
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="card black darken-1">
+                        <div class="card-content white-text">
+                            <span class="card-title">Account Settings</span>
+                            <p id="product">PRODUCTS: </p>
+                            <p id="email">EMAIL: </p>
+                            <p id="password">PASSWORD: </p>
+                            <p id="max_price">MAX PRICE: </p>
+                        </div>
+                        <div class="card-action">
+                            <button data-target="modal1" class="modal-trigger" href="#modal1" id="loginBtn"> Update
+                                Settings
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Update settings modal-->
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Update Settings</h4>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="product_update" type="text" class="validate">
+                                    <label for="product_update">Products</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email_update" type="email" class="validate">
+                                    <label for="email_update">Email</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="password_update" type="password" class="validate">
+                                    <label for="password_update">Password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="max_price_update" type="number" class="validate">
+                                    <label for="max_price_update">Asking Price</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="update_save">Save</a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+<!-- Main Page -->
+
+{{!-- javascript --}}
+
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+        $('.modal').modal();
+
+
+    });
+</script>

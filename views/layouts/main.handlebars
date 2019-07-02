@@ -31,35 +31,4 @@
 
 </body>
 
-<script>
-
-    $(document).ready(function () {
-
-        $('.modal').modal();
-
-
-        $("#loginSubmitBtn").on("click", function () {
-            var emailVerif = $("#email").val().trim();
-            var passVerif = $("#password").val().trim();
-
-            var verification = {
-                email: emailVerif,
-                password: passVerif
-            }
-
-            $.ajax("/api/company/login", {
-                type: "POST",
-                data: verification
-            }).then(
-                function () {
-                    console.log("Logged IN!");
-                }
-            )
-        });
-
-
-    });
-
-</script>
-
 </html>
