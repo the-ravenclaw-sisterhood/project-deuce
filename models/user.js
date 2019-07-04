@@ -32,7 +32,7 @@ let user = {
 
     getCompanyById: function(request, response){
         orm.select({table: "company", column: "company_id", value: request.params.id}, function(error, data){
-          response.json(data);
+          console.log(data);
         });
       },
     getInfluencerById: function(request, response){
@@ -81,12 +81,12 @@ let user = {
     //     orm.select(query, callback);
     // },
     getCompany: function (cb) {
-        orm.select("company", function (res) {
+        orm.select({table: "company"}, function (res) {
             cb(res);
         });
     },
     getInfluencer: function (cb) {
-        orm.select("influencer", function (res) {
+        orm.select({table: "influencer"}, function (res) {
             cb(res);
         });
     }
