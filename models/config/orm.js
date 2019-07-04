@@ -72,7 +72,6 @@ var orm = {
     // },
 
     select: function (queryObject, callback) {
-        console.log(queryObject)
         let queryString = "SELECT * FROM ??";
         let searchCriteria = [queryObject.table];
 

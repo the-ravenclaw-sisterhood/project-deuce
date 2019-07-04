@@ -4,15 +4,15 @@ var user = require("./models/user");
 module.exports = function(app) {
 
     app.get("/", function(request, response){
-        console.log("ROOT ROUTE")
+        // console.log("ROOT ROUTE")
         response.render("index");
     });
     app.get("/businesssettings", function(request, response){
-        console.log("ROOT ROUTE")
+        // console.log("ROOT ROUTE")
         response.render("layouts/businessSettings");
     });
     app.get("/influencersettings", function(request, response){
-        console.log("ROOT ROUTE")
+        // console.log("ROOT ROUTE")
         response.render("layouts/influencerSettings");
     });
     // app.post("/api/company", function(request, response) {
@@ -36,7 +36,7 @@ module.exports = function(app) {
     // });
     app.get("/api/influencer", function(request, response) {
         user.getInfluencerbyID(request, response);
-        console.log("ROOT ROUTE!")
+        // console.log("ROOT ROUTE!")
         // console.log(response);
         user.getCompany(request, response);
         response.render("influencerPage", {company: data})
@@ -49,6 +49,11 @@ module.exports = function(app) {
         });
     });
     app.get("/api/company/:id", function(request, response) {
+        // console.log(response);
+        // response.render("businessSettings", )
+        // var handlebarsCompany = {
+        //     company
+        // }
         user.getCompanyById(request, response);
     });
     app.get("/api/influencer/:id", function(request, response) {
