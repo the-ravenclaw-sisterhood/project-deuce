@@ -27,11 +27,11 @@ module.exports = function(app) {
     //     // user.getCompanyByID(request, response);
     // });
     app.get("/api/influencer", function(request, response) {
-        // user.getInfluencerbyID(request, response);
-        // console.log("ROOT ROUTE!")
+        user.getInfluencerbyID(request, response);
+        console.log("ROOT ROUTE!")
         // console.log(response);
-        // user.getCompany(request, response);
-        // response.render("influencerPage", {company: data})
+        user.getCompany(request, response);
+        response.render("influencerPage", {company: data})
 
         user.getCompany(function(data) {
             var handlebarsObject = {
@@ -40,7 +40,10 @@ module.exports = function(app) {
             response.render("influencerPage", handlebarsObject);
         });
     });
-    // app.get("/api/company/:id", function(request, response) {
-    //     user.getCompanyById(request, response);
-    // });
+    app.get("/api/company/:id", function(request, response) {
+        user.getCompanyById(request, response);
+    });
+    app.get("/api/influencer/:id", function(request, response) {
+        user.getInfluencerById(request, response);
+    });
 };

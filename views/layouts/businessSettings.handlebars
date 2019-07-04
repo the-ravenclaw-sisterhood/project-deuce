@@ -33,7 +33,7 @@
                     <div class="card black darken-1">
                         <div class="card-content white-text">
                             <span class="card-title">Account Settings</span>
-                            <p id="product">PRODUCTS: </p>
+                            <p id="bio">BIO: </p>
                             <p id="email">EMAIL: </p>
                             <p id="password">PASSWORD: </p>
                             <p id="max_price">MAX PRICE: </p>
@@ -55,8 +55,8 @@
                         <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="product_update" type="text" class="validate">
-                                    <label for="product_update">Products</label>
+                                    <input id="bio_update" type="text" class="validate">
+                                    <label for="bio_update">Products</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -102,6 +102,12 @@
         $('.sidenav').sidenav();
         $('.modal').modal();
 
+        let companyID = 2;
+
+
+        $.get("api/influencer/2", function (request, response) {
+            
+        })
 
     });
 </script>
