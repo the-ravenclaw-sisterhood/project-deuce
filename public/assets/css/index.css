@@ -68,8 +68,8 @@
         }
 
 
-        .influencerPageNav{
-            background: #202124;
+        .secondaryNavBar{
+            background: black;
             position: fixed;
             height: 65px;
             width: 100%;
@@ -92,41 +92,7 @@
             box-sizing: border-box;
         }
 
-        .box {
-            border-radius: 15px;
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 500px;
-            margin-bottom: 20px;
-            background-image: url("/assets/images/mountain_test.jpg");
-        }
-
-        .box2 {
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 500px;
-            margin-bottom: 20px;
-            background-image: url("/assets/images/mountain_test.jpg");
-        }
-
-        .box3 {
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 500px;
-            margin-bottom: 20px;
-            background-image: url("/assets/images/mountain_test.jpg");
-        }
-
-        .box4 {
-            float: left;
-            width: 100%;
-            padding: 50px;
-            height: 150px;
-            text-align: center;
-        }
+       
 
         #loginBtn {
             padding: 15px;
@@ -145,6 +111,27 @@
             clear: both;
             display: table;
             text-align: center;
+        }
+
+
+        .SecondarySection{
+            background: #202124;
+            height: 100%;
+            padding: 5em 0;
+        }
+
+        #secondaryParallax{
+            height: 200px;
+        }
+
+        .circle {
+            height: 65px;
+            width: 65px;
+            margin-right: 10px;
+        }
+
+        #chatButton {
+            float: right;
         }
 
         /* About style END */

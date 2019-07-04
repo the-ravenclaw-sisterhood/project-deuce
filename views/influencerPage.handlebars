@@ -1,5 +1,5 @@
 <!-- Nav bar -->
-<nav class="influencerPageNav">
+<nav class="secondaryNavBar">
     <div class="nav-wrapper">
         <div class="row">
             <div class="col s12">
@@ -19,9 +19,9 @@
 <!-- Nav bar -->
 
 <!-- Main page -->
-<section class="influencerProfile">
+<section class="SecondarySection">
 
-    <div class="parallax-container" id="influencerPageParallax">
+    <div class="parallax-container" id="secondaryParallax">
         <div class="parallax">
             <img src="/assets/images/background_app.jpg">
         </div>
@@ -47,7 +47,7 @@
                             <span>
                                 <h5>About Us</h5>
                                 <p id="about-Business">{{this.bio}}</p>
-                                <p><a class="btn-floating btn-large waves-effect waves-light blue" id="chatButton"><i
+                                <p><a class="btn-floating btn-large waves-effect waves-light tooltipped blue" data-position="top" data-tooltip="Message Me!" id="chatButton"><i
                                             class="material-icons">message</i></a></p>
                                 <p><br></p>
                             </span>
@@ -70,6 +70,8 @@
 
     $(document).ready(function () {
         $('.collapsible').collapsible();
+
+        $('.tooltipped').tooltip();
 
     $("#chatButton").on('click', function () {
             window.location = "https://quiet-reef-88593.herokuapp.com";
