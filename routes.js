@@ -7,6 +7,14 @@ module.exports = function(app) {
         console.log("ROOT ROUTE")
         response.render("index");
     });
+    app.get("/businesssettings", function(request, response){
+        console.log("ROOT ROUTE")
+        response.render("layouts/businessSettings");
+    });
+    app.get("/influencersettings", function(request, response){
+        console.log("ROOT ROUTE")
+        response.render("layouts/influencerSettings");
+    });
     // app.post("/api/company", function(request, response) {
     //     user.createCompany(request, response);
     // });
