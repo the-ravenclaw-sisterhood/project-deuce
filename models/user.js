@@ -40,6 +40,10 @@ let user = {
             response.json(data);
           });
     },
+
+    // updateInfluencer: function(request, response){
+    //     orm.update({table: "influencer", column:})
+    // }
     // selectByCompanyEmail: function(email, callback){
     //     let query = {
     //         table: 'company',

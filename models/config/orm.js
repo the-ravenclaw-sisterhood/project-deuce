@@ -106,7 +106,7 @@ var orm = {
         let operator = query.operator || 'AND';
         queryString += whereString.join(operator);
         return queryString;
-    }
+    },
     // delete: function(tableInput, valofCol) {
     //     let queryString = "DELETE FROM ?? WHERE ?";
     //     connection.query(queryString, [tableInput, valofCol], function(err, result) {
@@ -124,15 +124,15 @@ var orm = {
     //         console.log(statement.sql);
     //     }
     // },
-    // update: function(query, callback) {
-    //     let queryString = "UPDATE ?? SET ? WHERE ?";
-    //     let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
-    //         callback(error, result);
-    //     });
-    //     if (query.debug){
-    //         console.log(statement.sql);
-    //     }
-    // },
+    update: function(query, callback) {
+        let queryString = "UPDATE ?? SET ? WHERE ?";
+        let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
+            callback(error, result);
+        });
+        if (query.debug){
+            console.log(statement.sql);
+        }
+    },
     // query: function(queryString, queryArray, callback) {
     //     connection.query(queryString, queryArray, function(error, result) {
     //         callback(error, result);
