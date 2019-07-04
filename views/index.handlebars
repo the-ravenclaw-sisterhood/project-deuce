@@ -76,34 +76,53 @@
     <div class="modal-content">
         <h4>Lets Login</h4>
         <div class="row">
+            <div class="col s6" id="modalBody">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Business Login</span>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="busEmail" type="email" class="validate">
+                                <label for="busEmail">Email</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="buspassword" type="password" class="validate">
+                                <label for="buspassword">Password</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="/api/company" class="waves-effect waves-light btn blue">Login</a>
+                    </div>
+                </div>
+            </div>
 
             <div class="col s6" id="modalBody">
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">I am a Busisness...</span>
-                            <p>I am searching for Influencers to help get my business out there.</p>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                        <span class="card-title">Influencer Login</span>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="infEmail" type="email" class="validate">
+                                <label for="infEmail">Email</label>
+                            </div>
                         </div>
-                        <div class="card-action">
-                            <a href="/businessSignUp" class="waves-effect waves-light btn blue"
-                                id="createBusiButton">Create
-                                Account</a>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col s6" id="modalBody">
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">I am an Influencer...</span>
-                            <p>I want to help businesses and do other things.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="/influencerSignUp" class="waves-effect waves-light btn blue"
-                                id="createInfluButton">Create
-                                Account</a>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="infPassword" type="password" class="validate">
+                                <label for="infPassword">Password</label>
+                            </div>
                         </div>
                     </div>
+                    <div class="card-action">
+                        <a href="/api/influencer" class="waves-effect waves-light btn blue">Login</a>
+                    </div>
                 </div>
+            </div>
 
 
 
@@ -132,7 +151,8 @@
                             <p>I am searching for Influencers to help get my business out there.</p>
                         </div>
                         <div class="card-action">
-                            <a href="../views/signUpBusiness.html" class="waves-effect waves-light btn blue">Create
+                            <a href="/businessSignUp" class="waves-effect waves-light btn blue"
+                                id="createBusiButton">Create
                                 Account</a>
                         </div>
                     </div>
@@ -145,8 +165,8 @@
                             <p>I want to help businesses and do other things.</p>
                         </div>
                         <div class="card-action">
-                            <a href="../views/signUpInfluencer.html" class="waves-effect waves-light btn blue">Create
-                                Account</a>
+                            <a href="/influencerSignUp" class="waves-effect waves-light btn blue"
+                                id="createInfluButton">Create Account</a>
                         </div>
                     </div>
                 </div>
