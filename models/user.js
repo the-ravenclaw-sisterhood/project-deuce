@@ -81,12 +81,12 @@ let user = {
     //     orm.select(query, callback);
     // },
     getCompany: function (cb) {
-        orm.select("company", function (res) {
+        orm.selectAll("company", function (res) {
             cb(res);
         });
     },
     getInfluencer: function (cb) {
-        orm.select("influencer", function (res) {
+        orm.selectAll("influencer", function (res) {
             cb(res);
         });
     }
