@@ -1,24 +1,24 @@
 let orm = require("./config/orm");
 
 let user = {
-    // insertNewCompany: function(user, callback){
-    //     user.email = user.email.toLowerCase();
-    //     let query = {
-    //         table: 'company',
-    //         data: user
-    //     };
-    //     orm.insert(query, callback);
-    // },
-    // insertNewInfluencer: function(user, callback){
-    //     user.email = user.email.toLowerCase();
-    //     let query = {
-    //         table: 'influencer',
-    //         data: user
-    //     };
+    insertNewCompany: function(user, callback){
+        user.email = user.email.toLowerCase();
+        let query = {
+            table: 'company',
+            data: user
+        };
+        orm.insert(query, callback);
+    },
+    insertNewInfluencer: function(user, callback){
+        user.email = user.email.toLowerCase();
+        let query = {
+            table: 'influencer',
+            data: user
+        };
 
-    //     // console.log(user);
-    //     orm.insert(query, callback);
-    // },
+        // console.log(user);
+        orm.insert(query, callback);
+    },
     // getCompanyById: function(id, callback){
     //     let query = {
     //         table: 'company',
@@ -85,12 +85,12 @@ let user = {
     //     orm.select(query, callback);
     // },
     getCompany: function (cb) {
-        orm.select({table: "company"}, function (res) {
+        orm.selectAll("company", function (res) {
             cb(res);
         });
     },
     getInfluencer: function (cb) {
-        orm.select({table: "influencer"}, function (res) {
+        orm.selectAll("influencer", function (res) {
             cb(res);
         });
     }

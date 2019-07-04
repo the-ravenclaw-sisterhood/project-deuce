@@ -4,9 +4,19 @@ var user = require("./models/user");
 module.exports = function (app) {
 
     app.get("/", function (request, response) {
-        console.log("ROOT ROUTE")
+        // console.log("ROOT ROUTE")
         response.render("index");
     });
+    app.get("/influencerSignUp", function (request, response) {
+        response.render("../views/signUpInfluencer.handlebars")
+
+    });
+
+    app.get("/businessSignUp", function (request, response) {
+        response.render("../views/signUpBusiness.handlebars")
+
+    });
+
     app.get("/businesssettings", function (request, response) {
         // console.log("ROOT ROUTE")
         response.render("layouts/businessSettings");
@@ -31,6 +41,19 @@ module.exports = function (app) {
     // app.delete("/api/company/login", function(request, response) {
     //     user.logout(request, response);
     // });
+    // app.get("/api/company", function(request, response) {
+    //     user.getInfluencerById(request, response);
+    //     // user.getCompanyByID(request, response);
+    // });
+    app.get("/api/influencer", function (request, response) {
+        user.getCompany(function (data) {
+            var handlebarsObject = {
+                company: data
+            };
+            response.render("influencerPage", handlebarsObject);
+        });
+    });
+
     app.get("/api/company", function (request, response) {
         user.getInfluencer(function (data) {
             var handlebarsObject = {
@@ -39,26 +62,8 @@ module.exports = function (app) {
             response.render("businessUserPage", handlebarsObject);
             // console.log(handlebarsObject);
         });
-        //     // user.getCompanyByID(request, response);
     });
-    app.get("/api/influencer", function (request, response) {
-        // user.getInfluencerbyID(request, response);
-        // console.log("ROOT ROUTE!")
-        // console.log(response);
-        user.getCompany(request, response);
-        response.render("influencerPage", {
-            company: data
-        })
-
-        //     user.getCompany(function (data) {
-        //         var handlebarsObject = {
-        //             company: data
-        //         };
-        //         response.render("influencerPage", handlebarsObject);
-        //     });
-        // });
-    });
-
+    
     app.get("/api/company/:id", function (request, response) {
         user.getCompanyById(request, response);
 
@@ -66,5 +71,5 @@ module.exports = function (app) {
     app.get("/api/influencer/:id", function (request, response) {
         user.getInfluencerById(request, response);
     });
+};
 
-}
