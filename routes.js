@@ -7,11 +7,11 @@ module.exports = function (app) {
         console.log("ROOT ROUTE")
         response.render("index");
     });
-    app.get("/businesssettings", function(request, response){
+    app.get("/businesssettings", function (request, response) {
         // console.log("ROOT ROUTE")
         response.render("layouts/businessSettings");
     });
-    app.get("/influencersettings", function(request, response){
+    app.get("/influencersettings", function (request, response) {
         // console.log("ROOT ROUTE")
         response.render("layouts/influencerSettings");
     });
@@ -46,20 +46,25 @@ module.exports = function (app) {
         // console.log("ROOT ROUTE!")
         // console.log(response);
         user.getCompany(request, response);
-        response.render("influencerPage", {company: data})
+        response.render("influencerPage", {
+            company: data
+        })
 
-    //     user.getCompany(function (data) {
-    //         var handlebarsObject = {
-    //             company: data
-    //         };
-    //         response.render("influencerPage", handlebarsObject);
-    //     });
-    // });
-    app.get("/api/company/:id", function(request, response) {
+        //     user.getCompany(function (data) {
+        //         var handlebarsObject = {
+        //             company: data
+        //         };
+        //         response.render("influencerPage", handlebarsObject);
+        //     });
+        // });
+    });
+
+    app.get("/api/company/:id", function (request, response) {
         user.getCompanyById(request, response);
 
     });
-    app.get("/api/influencer/:id", function(request, response) {
+    app.get("/api/influencer/:id", function (request, response) {
         user.getInfluencerById(request, response);
     });
-};
+
+}

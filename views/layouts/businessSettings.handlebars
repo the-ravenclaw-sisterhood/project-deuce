@@ -24,10 +24,12 @@
             <img src="../public/assets/images/background_app.jpg">
         </div>
     </div>
+    
     <div class="section white">
+        {{#each company}}
         <div class="row container">
-            <h2 class="header" id="companyName"></h2>
-
+            <h2 class="header" id="companyName">{{this.company_name}}</h2>
+        {{/each}}
             <div class="row">
                 <div class="col s12">
                     <div class="card black darken-1">
@@ -88,7 +90,7 @@
             </div>
 
         </div>
-
+    
     </div>
 
 
@@ -109,7 +111,7 @@
 
     function getCompanySettings() {
     $.get("/api/company/2", function(data) {
-        console.log(data)
+
     });
   }
 </script>
