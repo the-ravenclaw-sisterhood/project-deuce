@@ -1,4 +1,4 @@
-let orm= require("./config/orm");
+let orm = require("./config/orm");
 
 let user = {
     // insertNewCompany: function(user, callback){
@@ -80,51 +80,56 @@ let user = {
     //     };
     //     orm.select(query, callback);
     // },
-    getCompany: function(cb) {
-		orm.select("company", function(res) {
-			cb(res);
-		});
-	}
-    // getInfluencer: function(session, callback){
-    //     let query= {
-    //         table: 'influencer',
-    //         columns: ['email', 'influencer_id'],
-    //         where: [{session: session}]
-    //     };
-    //     orm.select(query, callback);
-    // },
-    // updateCompanySession: function(email, uuid, callback){
-    //     let query = {
-    //         table: 'company',
-    //         data: {session: uuid},
-    //         where: [{email: email.toLowerCase()}]
-    //     };
-    //     orm.update(query, callback);
-    // },
-    // updateInfluencerSession: function(email, uuid, callback){
-    //     let query = {
-    //         table: 'influencer',
-    //         data: {session: uuid},
-    //         where: [{email: email.toLowerCase()}]
-    //     };
-    //     orm.update(query, callback);
-    // },
-    // removeCompanySession: function(session, callback){
-    //     let query = {
-    //         table: 'company',
-    //         data: {session: null},
-    //         where: [{session: session}]
-    //     };
-    //     orm.update(query, callback);
-    // },
-    // removeInfluencerSession: function(session, callback){
-    //     let query = {
-    //         table: 'influencer',
-    //         data: {session: null},
-    //         where: [{session: session}]
-    //     };
-    //     orm.update(query, callback);
-    // },
-};
+    getCompany: function (cb) {
+        orm.select("company", function (res) {
+            cb(res);
+        });
+    },
+    getInfluencer: function (cb) {
+        orm.select("influencer", function (res) {
+            cb(res);
+        });
+    }
+        // getInfluencer: function(session, callback){
+        //     let query= {
+        //         table: 'influencer',
+        //         columns: ['email', 'influencer_id'],
+        //         where: [{session: session}]
+        //     };
+        //     orm.select(query, callback);
+        // },
+        // updateCompanySession: function(email, uuid, callback){
+        //     let query = {
+        //         table: 'company',
+        //         data: {session: uuid},
+        //         where: [{email: email.toLowerCase()}]
+        //     };
+        //     orm.update(query, callback);
+        // },
+        // updateInfluencerSession: function(email, uuid, callback){
+        //     let query = {
+        //         table: 'influencer',
+        //         data: {session: uuid},
+        //         where: [{email: email.toLowerCase()}]
+        //     };
+        //     orm.update(query, callback);
+        // },
+        // removeCompanySession: function(session, callback){
+        //     let query = {
+        //         table: 'company',
+        //         data: {session: null},
+        //         where: [{session: session}]
+        //     };
+        //     orm.update(query, callback);
+        // },
+        // removeInfluencerSession: function(session, callback){
+        //     let query = {
+        //         table: 'influencer',
+        //         data: {session: null},
+        //         where: [{session: session}]
+        //     };
+        //     orm.update(query, callback);
+        // },
+    };
 
-module.exports= user;
+    module.exports = user;

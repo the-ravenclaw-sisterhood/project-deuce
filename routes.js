@@ -1,10 +1,11 @@
 var user = require("./models/user");
 // var authorizer = require("./controllers/config/authorizer");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-    app.get("/", function(request, response){
-        // console.log("ROOT ROUTE")
+
+    app.get("/", function (request, response) {
+        console.log("ROOT ROUTE")
         response.render("index");
     });
     app.get("/businesssettings", function(request, response){
@@ -30,18 +31,24 @@ module.exports = function(app) {
     // app.delete("/api/company/login", function(request, response) {
     //     user.logout(request, response);
     // });
-    // app.get("/api/company", function(request, response) {
-    //     user.getInfluencerById(request, response);
-    //     // user.getCompanyByID(request, response);
-    // });
-    app.get("/api/influencer", function(request, response) {
-        user.getInfluencerbyID(request, response);
+
+    app.get("/api/company", function (request, response) {
+        user.getInfluencer(function (data) {
+            var handlebarsObject = {
+                influencer: data
+            };
+            response.render("businessUserPage", handlebarsObject);
+        });
+        //     // user.getCompanyByID(request, response);
+    });
+    app.get("/api/influencer", function (request, response) {
+        // user.getInfluencerbyID(request, response);
         // console.log("ROOT ROUTE!")
         // console.log(response);
         user.getCompany(request, response);
         response.render("influencerPage", {company: data})
 
-        user.getCompany(function(data) {
+        user.getCompany(function (data) {
             var handlebarsObject = {
                 company: data
             };
