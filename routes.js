@@ -37,7 +37,7 @@ module.exports = function (app) {
                 influencer: data
             };
             response.render("businessUserPage", handlebarsObject);
-            console.log(handlebarsObject);
+            // console.log(handlebarsObject);
         });
         //     // user.getCompanyByID(request, response);
     });
@@ -56,8 +56,8 @@ module.exports = function (app) {
     //     });
     // });
     app.get("/api/company/:id", function(request, response) {
-
         user.getCompanyById(request, response);
+
     });
     app.get("/api/influencer/:id", function(request, response) {
         user.getInfluencerById(request, response);
