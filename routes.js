@@ -3,9 +3,18 @@ var user = require("./models/user");
 
 module.exports = function (app) {
 
+
     app.get("/", function (request, response) {
         console.log("ROOT ROUTE")
         response.render("index");
+    });
+    app.get("/businesssettings", function(request, response){
+        // console.log("ROOT ROUTE")
+        response.render("layouts/businessSettings");
+    });
+    app.get("/influencersettings", function(request, response){
+        // console.log("ROOT ROUTE")
+        response.render("layouts/influencerSettings");
     });
     // app.post("/api/company", function(request, response) {
     //     user.createCompany(request, response);
@@ -22,6 +31,7 @@ module.exports = function (app) {
     // app.delete("/api/company/login", function(request, response) {
     //     user.logout(request, response);
     // });
+
     app.get("/api/company", function (request, response) {
         user.getInfluencer(function (data) {
             var handlebarsObject = {
@@ -35,8 +45,8 @@ module.exports = function (app) {
         // user.getInfluencerbyID(request, response);
         // console.log("ROOT ROUTE!")
         // console.log(response);
-        // user.getCompany(request, response);
-        // response.render("influencerPage", {company: data})
+        user.getCompany(request, response);
+        response.render("influencerPage", {company: data})
 
         user.getCompany(function (data) {
             var handlebarsObject = {
@@ -45,7 +55,15 @@ module.exports = function (app) {
             response.render("influencerPage", handlebarsObject);
         });
     });
-    // app.get("/api/company/:id", function(request, response) {
-    //     user.getCompanyById(request, response);
-    // });
+    app.get("/api/company/:id", function(request, response) {
+        // console.log(response);
+        // response.render("businessSettings", )
+        // var handlebarsCompany = {
+        //     company
+        // }
+        user.getCompanyById(request, response);
+    });
+    app.get("/api/influencer/:id", function(request, response) {
+        user.getInfluencerById(request, response);
+    });
 };

@@ -25,16 +25,25 @@ let user = {
     //         columns: ['email', 'user_id', 'created', 'modified'],
     //         where: [{company_id: id}]
     //     };
-    //     orm.select(query, callback);
+    //     orm.select(query, function(error, data){
+    //         callback(data.json)
+    //     });
     // },
-    // getInfluencerById: function(id, callback){
-    //     let query = {
-    //         table: 'influencer',
-    //         columns: ['email', 'user_id', 'created', 'modified'],
-    //         where: [{influencer_id: id}]
-    //     };
-    //     orm.select(query, callback);
-    // },
+
+    getCompanyById: function(request, response){
+        orm.select({table: "company", column: "company_id", value: request.params.id}, function(error, data){
+          response.json(data);
+        });
+      },
+    getInfluencerById: function(request, response){
+        orm.select({table: "influencer", column: "influencer_id", value: request.params.id}, function(error, data){
+            response.json(data);
+          });
+    },
+
+    // updateInfluencer: function(request, response){
+    //     orm.update({table: "influencer", column:})
+    // }
     // selectByCompanyEmail: function(email, callback){
     //     let query = {
     //         table: 'company',

@@ -57,6 +57,7 @@ var orm = {
     //     return query;
     // },
     // select: function(query, callback) {
+    //     console.log(query);
     //     let queryString= "SELECT ?? FROM ??";
     //     let searchInputs= [query.columns || ['*'], query.table];
     //     if(query.where){
@@ -69,27 +70,42 @@ var orm = {
     //         console.log(statement.sql)
     //     }
     // },
-    select: function(tableInput, cb) {
-        var queryString = "SELECT * FROM ??";
-        connection.query(queryString, [tableInput], function(err, result){
-            if (err) {
-                throw err;
-            }
-            console.log(result);
-            cb(result);
+
+    select: function (queryObject, callback) {
+        let queryString = "SELECT * FROM ??";
+        let searchCriteria = [queryObject.table];
+
+        if (queryObject.value) {
+            queryString += " WHERE ?? = ?";
+            searchCriteria.push(queryObject.column);
+            searchCriteria.push(queryObject.value);
+        }
+        connection.query(queryString, searchCriteria, function (err, result) {
+            // if (err) throw err;
+            callback(err, result);
         });
-    }
-    // _buildWhereStatement: function(query, queryString, searchInputs){
-    //     queryString += " WHERE ";
-    //     let whereString = [];
-    //     for (let where in query.where) {
-    //         searchInputs.push(query.where[where]);
-    //         whereString.push(' ? ');
-    //     }
-    //     let operator = query.operator || 'AND';
-    //     queryString += whereString.join(operator);
-    //     return queryString;
-    // },
+    },
+    // select: function(tableInput, cb) {
+    //     var queryString = "SELECT * FROM ??";
+    //     connection.query(queryString, [tableInput], function(err, result){
+    //         if (err) {
+    //             throw err;
+    //         }
+    //         console.log(result);
+    //         cb(result);
+    //     });
+    // }
+    _buildWhereStatement: function(query, queryString, searchInputs){
+        queryString += " WHERE ";
+        let whereString = [];
+        for (let where in query.where) {
+            searchInputs.push(query.where[where]);
+            whereString.push(' ? ');
+        }
+        let operator = query.operator || 'AND';
+        queryString += whereString.join(operator);
+        return queryString;
+    },
     // delete: function(tableInput, valofCol) {
     //     let queryString = "DELETE FROM ?? WHERE ?";
     //     connection.query(queryString, [tableInput, valofCol], function(err, result) {
@@ -107,15 +123,15 @@ var orm = {
     //         console.log(statement.sql);
     //     }
     // },
-    // update: function(query, callback) {
-    //     let queryString = "UPDATE ?? SET ? WHERE ?";
-    //     let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
-    //         callback(error, result);
-    //     });
-    //     if (query.debug){
-    //         console.log(statement.sql);
-    //     }
-    // },
+    update: function(query, callback) {
+        let queryString = "UPDATE ?? SET ? WHERE ?";
+        let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
+            callback(error, result);
+        });
+        if (query.debug){
+            console.log(statement.sql);
+        }
+    },
     // query: function(queryString, queryArray, callback) {
     //     connection.query(queryString, queryArray, function(error, result) {
     //         callback(error, result);

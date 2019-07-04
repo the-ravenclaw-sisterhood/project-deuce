@@ -26,14 +26,14 @@
     </div>
     <div class="section white">
         <div class="row container">
-            <h2 class="header" id="companyName">Company Name</h2>
+            <h2 class="header" id="companyName"></h2>
 
             <div class="row">
                 <div class="col s12">
                     <div class="card black darken-1">
                         <div class="card-content white-text">
                             <span class="card-title">Account Settings</span>
-                            <p id="product">PRODUCTS: </p>
+                            <p id="bio">BIO: </p>
                             <p id="email">EMAIL: </p>
                             <p id="password">PASSWORD: </p>
                             <p id="max_price">MAX PRICE: </p>
@@ -55,8 +55,8 @@
                         <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="product_update" type="text" class="validate">
-                                    <label for="product_update">Products</label>
+                                    <input id="bio_update" type="text" class="validate">
+                                    <label for="bio_update">Bio</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -101,7 +101,15 @@
     $(document).ready(function () {
         $('.sidenav').sidenav();
         $('.modal').modal();
+        console.log("ready");
+        getCompanySettings();
+
+        });
 
 
+    function getCompanySettings() {
+    $.get("/api/company/2", function(data) {
+        console.log(data)
     });
+  }
 </script>
