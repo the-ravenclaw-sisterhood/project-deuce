@@ -1,9 +1,9 @@
 <!-- Nav bar -->
-<nav>
+<nav class="secondaryNavBar">
     <div class="nav-wrapper">
         <div class="row">
             <div class="col s12">
-                <a href="../views/index.html" target="_blank" class="brand-logo">Influence<span
+                <a href="/" target="_blank" class="brand-logo">Influence<span
                         class="hide-on-small-only">&nbsp;Ya</span></a>
             </div>
         </div>
@@ -13,9 +13,9 @@
 
 <!-- Main Page -->
 
-<section class="busCreatePage">
+<section class="SecondarySection">
 
-    <div class="parallax-container">
+    <div class="parallax-container" id="secondaryParallax">
         <div class="parallax">
             <img src="../public/assets/images/background_app.jpg">
         </div>
@@ -51,7 +51,22 @@
                 </div>
 
                 <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="business_bio" class="materialize-textarea"></textarea>
+                        <label for="business_bio">Tell us about your business</label>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="input-field col s4">
+                        <i class="material-icons prefix">monetization_on</i>
+                        <input id="business_max_price" type="text">
+                        <label for="business_max_price">Max Price</label>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col s4"></div>
                     <div class="col s4" id="buttonLocation">
                         <a class="waves-effect waves-light btn-large blue" id="business-SubmitBtn">
@@ -59,7 +74,6 @@
                         </a>
                     </div>
                     <div class="col s4"></div>
-
                 </div>
 
             </form>
