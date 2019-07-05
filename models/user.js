@@ -32,11 +32,7 @@ let user = {
 
     getCompanyById: function(request, response){
         orm.select({table: "company", column: "company_id", value: request.params.id}, function(error, data){
-            var companyHandlebarsObject = {
-                company: data
-            };
-            console.log(companyHandlebarsObject);
-            response.render("layouts/businessSettings", companyHandlebarsObject);
+            response.json(data);
         });
       },
     getInfluencerById: function(request, response){
