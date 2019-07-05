@@ -71,7 +71,7 @@ var orm = {
     //     }
     // },
 
-    select: function (queryObject, cb) {
+    select: function (queryObject, callback) {
         let queryString = "SELECT * FROM ??";
         let searchCriteria = [queryObject.table];
 
@@ -82,7 +82,7 @@ var orm = {
         }
         connection.query(queryString, searchCriteria, function (err, result) {
             // if (err) throw err;
-            cb(err, result);
+            callback(err, result);
         });
     },
     selectAll: function(tableInput, cb) {
