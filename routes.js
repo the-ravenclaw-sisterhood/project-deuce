@@ -32,7 +32,6 @@ module.exports = function (app) {
         user.createInfluencer(request, response);
     });
     app.post("/api/company/login", function(request, response) {
-        console.log("hit");
         user.loginCompany(request, response);
     });
     app.post("api/influencer/login", function(request,response){

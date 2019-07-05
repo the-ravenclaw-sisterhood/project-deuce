@@ -1,4 +1,5 @@
 let orm = require("./config/orm");
+require('../routes');
 
 let user = {
     insertNewCompany: function (user, callback) {
@@ -39,13 +40,16 @@ let user = {
     },
 
     loginCompany: function (request, response) {
-        console.log(request);
         orm.select({
-            table: "influencer",
+            table: "company",
             column: "email",
-            value: request.params.id
+            value: request.body.email
         }, function(error, result){
             response.json(result);
+            console.log(request.body.password, result[0].password)
+            if (request.body.password === result[0].password){
+                console.log("fire");
+            }
         });
     },
 

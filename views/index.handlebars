@@ -217,8 +217,9 @@
                 email: $("#busEmail").val(),
                 password: $("#busPassword").val()
             };
-
             console.log(busVerification);
+
+            $.post("/api/company/login", busVerification);
             
         })
 
