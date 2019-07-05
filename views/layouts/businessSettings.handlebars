@@ -105,15 +105,17 @@
         $('.modal').modal();
         getCompanySettings();
 
-        function getCompanySettings() {
-            $.get("/api/company/2", function (data) {
-                $("#companyName").append(data[0].company_name);
-                $("#bio").append(data[0].bio);
-                $("#email").append(data[0].email);
-                $("#password").append(data[0].password);
-                $("#max_price").append(data[0].max_price);
-            });
-        }
     });
+
+
+    function getCompanySettings() {
+        $.get("/api/company/2", function (data) {
+            $("#companyName").append(data[0].company_name);
+            $("#bio").append(data[0].bio);
+            $("#email").append(data[0].email);
+            $("#password").append(data[0].password);
+            $("#max_price").append(data[0].max_price);
+        });
+    };
 
 </script>
