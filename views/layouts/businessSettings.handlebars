@@ -6,7 +6,7 @@
                 <a href="#" target="_blank" class="brand-logo">Influence<span
                         class="hide-on-small-only">&nbsp;Ya</span></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="#">Account Settings</a></li>
+                    <li><a href="/views/layouts/influencerSettings.handlebars">Account Settings</a></li>
                     <li>|</li>
                     <li><a href="#">Log Out</a></li>
                 </ul>
@@ -24,10 +24,10 @@
             <img src="../public/assets/images/background_app.jpg">
         </div>
     </div>
+
     <div class="section white">
         <div class="row container">
             <h2 class="header" id="companyName"></h2>
-
             <div class="row">
                 <div class="col s12">
                     <div class="card black darken-1">
@@ -101,15 +101,17 @@
     $(document).ready(function () {
         $('.sidenav').sidenav();
         $('.modal').modal();
-        console.log("ready");
         getCompanySettings();
 
-        });
-
-
-    function getCompanySettings() {
-    $.get("/api/company/2", function(data) {
-        console.log(data)
+        function getCompanySettings() {
+            $.get("/api/company/2", function (data) {
+                $("#companyName").append(data[0].company_name);
+                $("#bio").append(data[0].bio);
+                $("#email").append(data[0].email);
+                $("#password").append(data[0].password);
+                $("#max_price").append(data[0].max_price);
+            });
+        }
     });
-  }
+
 </script>
