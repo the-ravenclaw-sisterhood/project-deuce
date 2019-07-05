@@ -1,5 +1,4 @@
 var user = require("./models/user");
-// var authorizer = require("./controllers/config/authorizer");
 
 module.exports = function (app) {
 
@@ -25,12 +24,13 @@ module.exports = function (app) {
         // console.log("ROOT ROUTE")
         response.render("layouts/influencerSettings");
     });
-    // app.post("/api/company", function(request, response) {
-    //     user.createCompany(request, response);
-    // });
-    // app.post("/api/influencer", function(request, response) {
-    //     user.createInfluencer(request, response);
-    // });
+
+    app.post("/api/company", function(request, response) {
+        user.createCompany(request, response);
+    });
+    app.post("/api/influencer", function(request, response) {
+        user.createInfluencer(request, response);
+    });
     // app.post("/api/company/login", function(request, response) {
     //     user.login(request, response);
     // });
@@ -63,13 +63,8 @@ module.exports = function (app) {
     });
     
     app.get("/api/company/:id", function (request, response) {
-
-        // console.log(response);
-        // response.render("businessSettings", )
-        // var handlebarsCompany = {
-        //     company
-        // }
         user.getCompanyById(request, response);
+
     });
     app.get("/api/influencer/:id", function (request, response) {
         user.getInfluencerById(request, response);
