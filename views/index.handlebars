@@ -89,13 +89,13 @@
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="buspassword" type="password" class="validate">
-                                <label for="buspassword">Password</label>
+                                <input id="busPassword" type="password" class="validate">
+                                <label for="busPassword">Password</label>
                             </div>
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="/api/company" class="waves-effect waves-light btn blue">Login</a>
+                        <a href="#" class="waves-effect waves-light btn blue" id="busLogin">Login</a>
                     </div>
                 </div>
             </div>
@@ -209,6 +209,18 @@
                 }
             )
         });
+
+        $("#busLogin").on("click", function(){
+            console.log("click");
+
+            let busVerification = {
+                email: $("#busEmail").val(),
+                password: $("#busPassword").val()
+            };
+
+            console.log(busVerification);
+            
+        })
 
 
     });

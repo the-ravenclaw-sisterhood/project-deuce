@@ -32,10 +32,11 @@ module.exports = function (app) {
         user.createInfluencer(request, response);
     });
     app.post("/api/company/login", function(request, response) {
-        user.login(request, response);
+        console.log("hit");
+        user.loginCompany(request, response);
     });
     app.post("api/influencer/login", function(request,response){
-        user.login(request, response);
+        user.loginInfluencer(request, response);
     })
     // app.delete("/api/company/login", function(request, response) {
     //     user.logout(request, response);
