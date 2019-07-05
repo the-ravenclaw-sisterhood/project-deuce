@@ -15,20 +15,8 @@ let user = {
             table: 'influencer',
             data: user
         };
-
-        // console.log(user);
         orm.insert(query, callback);
     },
-    // getCompanyById: function(id, callback){
-    //     let query = {
-    //         table: 'company',
-    //         columns: ['email', 'user_id', 'created', 'modified'],
-    //         where: [{company_id: id}]
-    //     };
-    //     orm.select(query, function(error, data){
-    //         callback(data.json)
-    //     });
-    // },
 
     getCompanyById: function(request, response){
         orm.select({table: "company", column: "company_id", value: request.params.id}, function(error, data){
@@ -41,9 +29,6 @@ let user = {
           });
     },
 
-    // updateInfluencer: function(request, response){
-    //     orm.update({table: "influencer", column:})
-    // }
     // selectByCompanyEmail: function(email, callback){
     //     let query = {
     //         table: 'company',

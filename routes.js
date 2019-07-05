@@ -1,5 +1,4 @@
 var user = require("./models/user");
-// var authorizer = require("./controllers/config/authorizer");
 
 module.exports = function (app) {
 
@@ -26,12 +25,12 @@ module.exports = function (app) {
         response.render("layouts/influencerSettings");
     });
 
-    // app.post("/api/company", function(request, response) {
-    //     user.createCompany(request, response);
-    // });
-    // app.post("/api/influencer", function(request, response) {
-    //     user.createInfluencer(request, response);
-    // });
+    app.post("/api/company", function(request, response) {
+        user.createCompany(request, response);
+    });
+    app.post("/api/influencer", function(request, response) {
+        user.createInfluencer(request, response);
+    });
     // app.post("/api/company/login", function(request, response) {
     //     user.login(request, response);
     // });
@@ -60,7 +59,6 @@ module.exports = function (app) {
                 influencer: data
             };
             response.render("businessUserPage", handlebarsObject);
-            // console.log(handlebarsObject);
         });
     });
     

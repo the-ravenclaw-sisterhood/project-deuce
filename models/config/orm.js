@@ -56,20 +56,6 @@ var orm = {
     //     query += ') ENGINE=InnoDB DEFAULT CHARSET=utf8;';
     //     return query;
     // },
-    // select: function(query, callback) {
-    //     console.log(query);
-    //     let queryString= "SELECT ?? FROM ??";
-    //     let searchInputs= [query.columns || ['*'], query.table];
-    //     if(query.where){
-    //         queryString = orm._buildWhereStatement(query, queryString, searchInputs);
-    //     }
-    //     let statement= connection.query(queryString, searchInputs, function(err, result) {
-    //         callback(err, result)
-    //     });
-    //     if (query.debug){
-    //         console.log(statement.sql)
-    //     }
-    // },
 
     select: function (queryObject, callback) {
         let queryString = "SELECT * FROM ??";
@@ -114,15 +100,15 @@ var orm = {
     //         console.log(result);
     //     });
     // },
-    // insert: function(query, callback) {
-    //     let queryString = "INSERT INTO ?? SET ?";
-    //     let statement = connection.query(queryString, [query.table, query.data], function(error, result) {
-    //         callback(error, result);
-    //     });
-    //     if (query.debug){
-    //         console.log(statement.sql);
-    //     }
-    // },
+    insert: function(query, callback) {
+        let queryString = "INSERT INTO ?? SET ?";
+        let statement = connection.query(queryString, [query.table, query.data], function(error, result) {
+            callback(error, result);
+        });
+        if (query.debug){
+            console.log(statement.sql);
+        }
+    },
     update: function(query, callback) {
         let queryString = "UPDATE ?? SET ? WHERE ?";
         let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
