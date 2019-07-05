@@ -1,15 +1,10 @@
 <!-- Nav bar -->
-<nav>
+<nav class="secondaryNavBar">
     <div class="nav-wrapper">
         <div class="row">
             <div class="col s12">
-                <a href="../views/index.html" target="_blank" class="brand-logo">Influence<span
+                <a href="/" target="_blank" class="brand-logo">Influence<span
                         class="hide-on-small-only">&nbsp;Ya</span></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="">Account Settings</a></li>
-                    <li>|</li>
-                    <li><a href="#">Log Out</a></li>
-                </ul>
             </div>
         </div>
     </div>
@@ -18,9 +13,9 @@
 
 <!-- Main Page -->
 
-<section class="busCreatePage">
+<section class="SecondarySection">
 
-    <div class="parallax-container">
+    <div class="parallax-container" id="secondaryParallax">
         <div class="parallax">
             <img src="../public/assets/images/background_app.jpg">
         </div>
@@ -34,12 +29,12 @@
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="influencer_first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
+                        <label for="influencer_first_name">First Name</label>
                     </div>
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="influencer_last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
+                        <label for="influencer_last_name">Last Name</label>
                     </div>
                 </div>
 
@@ -47,7 +42,7 @@
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
                         <input id="influencer_email" type="email" class="validate">
-                        <label for="email">Email</label>
+                        <label for="influencer_email">Email</label>
                     </div>
                 </div>
 
@@ -55,7 +50,15 @@
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
                         <input id="influencer_password" type="password" class="validate">
-                        <label for="password">Password</label>
+                        <label for="influencer_password">Password</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="influencer_bio" class="materialize-textarea"></textarea>
+                        <label for="influencer_bio">Tell us about yourself</label>
                     </div>
                 </div>
 
@@ -63,7 +66,7 @@
                     <div class="input-field col s4">
                         <i class="material-icons prefix">people</i>
                         <input id="influencer_input_followers" type="text">
-                        <label for="input_text">About how many followers do you have?</label>
+                        <label for="influencer_input_followers">About how many followers do you have?</label>
                     </div>
                 </div>
 
@@ -73,7 +76,7 @@
                             <i class="material-icons prefix">monetization_on</i>
                             <input type="range" min="1" max="100" value="50" class="slider influencer_priceRange"
                                 id="myRange">
-                            <label id="influencer_priceRange" for="price_Range">
+                            <label id="influencer_priceRange" for="myRange">
                                 <p>Price: $<span id="demo"></span></p>
                             </label>
                         </div>
@@ -124,6 +127,7 @@
             last_name: $("#influencer_last_name").val(),
             email: $("#influencer_email").val(),
             password: $("#influencer_password").val(),
+            bio: $("influencer_bio").val(),
             followers: Number($("#influencer_input_followers").val()),
             price: Number($(".influencer_priceRange").val()),
 
