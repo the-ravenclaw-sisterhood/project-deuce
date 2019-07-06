@@ -59,13 +59,7 @@ module.exports = function (app) {
     // });
     
 
-<<<<<<< HEAD
-    app.delete("/api/company/:id", function(request, response) {
-        user.removeCompany(request, response);
-      });
-    app.delete("/api/influencer/:id", function(request, response) {
-        user.removeInfluencer(request, response);
-=======
+
     app.delete("/api/businessSettings/:password", function (req, res) {
         var condition = "password = " + "'" + req.params.password +"'";
         console.log("*****************************")
