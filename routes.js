@@ -33,11 +33,10 @@ module.exports = function (app) {
     });
 
     app.post("/api/company", function(request, response) {
-        console.log("hit");
         users.createCompany(request, response);
     });
     app.post("/api/influencer", function(request, response) {
-        user.createInfluencer(request, response);
+        users.createInfluencer(request, response);
     });
     app.post("/api/company/login", function(request, response) {
         user.loginCompany(request, response);
