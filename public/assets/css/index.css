@@ -144,7 +144,7 @@
         }
 
         #secondaryParallax{
-            height: 200px;
+            height: 70px;
         }
 
         .circle {
@@ -164,6 +164,30 @@
         #buttonLocation{
             text-align: center;
         }
+
+        .BusinessCreateHeader{
+            text-align: center;
+        }
+
+        #congratsImg{
+            text-align: center;
+            width: 1200px;
+        }
+
+        #image{
+            text-align: center;
+            width: 700px;
+            height: 600px;
+        }
+
+        #homePageLinkDiv{
+            text-align: center;
+        }
+
+        #homePageLink{
+            margin-top: 0;
+        }
+
 
         /* About style END */
 
