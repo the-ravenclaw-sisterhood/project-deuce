@@ -180,6 +180,21 @@ let user = {
 
     },
 
+
+
+    removeUser: function(condition, cb) {
+        orm.delete("company", condition, function(res) {
+          cb(res);
+        });
+      },
+      removeUser: function(condition, cb) {
+        orm.delete("influencer", condition, function(res) {
+          cb(res);
+        });
+      }
+
+      
+
         // getInfluencer: function(session, callback){
         //     let query= {
         //         table: 'influencer',

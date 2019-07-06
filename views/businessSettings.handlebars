@@ -98,16 +98,16 @@
             <!-- Modal Structure -->
             <div id="modal2" class="modal">
                 <div class="modal-content">
-                    <h4>Enter Your Email</h4>
+                    <h4>Enter Your Password</h4>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="delete_email" type="email" class="validate">
-                            <label for="delete_email" id="delete_email">Email</label>
+                            <input id="delete_business" type="password" class="validate">
+                            <label for="delete_business">Password</label>
                         </div>
                     </div>
                     <div class="row">
-                        <a class=" waves-effect waves-light btn-large red deleteBusiness"><i class="material-icons left"
-                                id="deleteBusiness">delete</i>delete account</a>
+                        <a class=" waves-effect waves-light btn-large red" id="deleteBusiness"><i class="material-icons left"
+                                >delete</i>delete account</a>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -141,15 +141,21 @@
             });
         };
 
-        $(".deleteBusiness").on("click", function () {
-            var email = $("#delete_email").val();
+        $("#deleteBusiness").on("click", function () {
+            console.log("clicked");
+            var password = $("#delete_business").val();
+            console.log(password);
 
             // Send the DELETE request.
-            $.ajax({
-                method: "DELETE",
-                url: `/api/company/${email}`,
-            }).then(location.reload());
+            $.ajax("/api/businessSettings/" + password, {
+                type: "DELETE",
+            }).then(
+                function () {
+                    console.log("deleted business");
+                    // Reload the page to get the updated list
 
+                }
+            );
         });
 
         $("#update_save").on("click", function () {
