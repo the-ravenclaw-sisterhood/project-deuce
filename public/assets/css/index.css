@@ -81,7 +81,7 @@
 
         /* About style BEGIN */
         #about {
-            background: #202124;
+            background: white;
             height: 100%;
             padding: 5em 0;
         }
@@ -90,18 +90,43 @@
             box-sizing: border-box;
         }
 
-       
+       #parallaxImg1{
+           background-image: url("/assets/images/undraw_social_influencer_sgsv.png");
+           background-repeat: no-repeat;
+           background-size: contain;
+           margin-left: 500px;
+       }
+
+       #parallaxImg2{
+        background-image: url("/assets/images/undraw_hire_te5y.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 500px;
+    }
+
+        #parallaxImg3{
+        background-image: url("/assets/images/undraw_Group_chat_unwm.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 500px;
+    }
+
+       #aboutPage1{
+           background-color: #202124;
+           color: white;
+       }
 
         #loginBtn {
-            padding: 15px;
-            margin-right: 20px;
-            border-radius: 20px;
+            /* text-align: center; */
+            /* padding: 15px; */
+            margin-left: 475px;
+            /* border-radius: 20px; */
         }
 
         #signUpBtn {
-            padding: 15px;
+            /* padding: 15px; */
             margin-left: 20px;
-            border-radius: 20px;
+            /* border-radius: 20px; */
         }
 
         .clearfix::after {
@@ -119,7 +144,7 @@
         }
 
         #secondaryParallax{
-            height: 200px;
+            height: 70px;
         }
 
         .circle {
@@ -139,6 +164,30 @@
         #buttonLocation{
             text-align: center;
         }
+
+        .BusinessCreateHeader{
+            text-align: center;
+        }
+
+        #congratsImg{
+            text-align: center;
+            width: 1200px;
+        }
+
+        #image{
+            text-align: center;
+            width: 700px;
+            height: 600px;
+        }
+
+        #homePageLinkDiv{
+            text-align: center;
+        }
+
+        #homePageLink{
+            margin-top: 0;
+        }
+
 
         /* About style END */
 
