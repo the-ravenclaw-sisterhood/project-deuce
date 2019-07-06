@@ -101,6 +101,23 @@ var orm = {
     //         console.log(result);
     //     });
     // },
+
+
+    delete: function(table, condition, cb) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+    
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+    
+          cb(result);
+        });
+      },
+
+      
     insert: function(query, callback) {
         let queryString = "INSERT INTO ?? SET ?";
         let statement = connection.query(queryString, [query.table, query.data], function(error, result) {
