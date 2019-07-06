@@ -69,6 +69,13 @@ let user = {
         });
     },
 
+    removeUser: function(request, response) {
+        console.log(request);
+        // orm.delete("company", condition, function(res) {
+        //   cb(res);
+        // });
+      },
+
     // selectByCompanyEmail: function(email, callback){
     //     let query = {
     //         table: 'company',
@@ -117,14 +124,6 @@ let user = {
 
     },
 
-
-    removeUser: function(condition, cb) {
-        orm.delete("company", condition, function(res) {
-          cb(res);
-        });
-      }
-
-      
         // getInfluencer: function(session, callback){
         //     let query= {
         //         table: 'influencer',

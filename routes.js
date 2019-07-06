@@ -57,8 +57,6 @@ module.exports = function (app) {
         user.removeUser(request, response);
       });
 
-
-
     app.get("/api/influencer", function (request, response) {
         user.getCompany(function (data) {
             var handlebarsObject = {

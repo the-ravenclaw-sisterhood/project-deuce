@@ -98,7 +98,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="delete_email" type="email" class="validate">
-                            <label for="delete_email">Email</label>
+                            <label for="delete_email" id="delete_email">Email</label>
                         </div>
                     </div>
                     <div class="row">
@@ -140,18 +140,15 @@
 
 
         $(".deleteBusiness").on("click", function () {
-            var email = $("delete_email").val();
+            var email = $("#delete_email").val();
 
+            console.log(email);
             // Send the DELETE request.
-            $.ajax("/api/company/" + email, {
-                type: "DELETE",
-            }).then(
-                function () {
-                    console.log("deleted business", email);
-                    // Reload the page to get the updated list
+            $.ajax({
+                method: "DELETE",
+                url: `/api/company/${email}`,
+            })
 
-                }
-            );
         });
 
 
