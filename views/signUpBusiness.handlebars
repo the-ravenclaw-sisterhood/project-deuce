@@ -90,7 +90,7 @@
 
 <script>
     $(document).ready(function () {
-        $("#business-SubmitBtn").on("click", function(){
+        $("#business-SubmitBtn").on("click", function () {
             let newCompany = {
                 company_name: $("#business_name").val().trim(),
                 email: $("#business_email").val().trim(),
@@ -99,7 +99,8 @@
                 max_price: $("#business_max_price").val().trim(),
             }
 
-            console.log(newCompany)
+            $.post("/api/company", newCompany, {
+            })
         })
 
     });

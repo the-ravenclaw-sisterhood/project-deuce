@@ -1,5 +1,5 @@
 let orm = require("./config/orm");
-require('../routes');
+
 
 let user = {
     insertNewCompany: function (user, callback) {

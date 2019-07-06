@@ -1,4 +1,5 @@
 var user = require("./models/user");
+let users = require("./controllers/user")
 
 module.exports = function (app) {
 
@@ -32,7 +33,8 @@ module.exports = function (app) {
     });
 
     app.post("/api/company", function(request, response) {
-        user.createCompany(request, response);
+        console.log("hit");
+        users.createCompany(request, response);
     });
     app.post("/api/influencer", function(request, response) {
         user.createInfluencer(request, response);

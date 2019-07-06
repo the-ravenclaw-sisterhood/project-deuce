@@ -4,21 +4,20 @@ let users = require('../models/user')
 
 let user = {
     createCompany: function (request, response) {
+        console.log(request);
         if (!request.body.email.includes('@') || !request.body.email.includes('.')) {
             response.status(400).json({
                 'error': 'email is not valid'
             });
-        } else if (request.body.password !== request.body.password_confirm) {
-            response.status(400).json({
-                'error': 'passwords do not match'
-            });
         } else {
-            let hashedPassword = hashPass(request.body.password);
             let userRequest = {
+                company_name: request.body.company_name,
+                bio: request.body.bio,
+                max_price: request.body.max_price,
                 email: request.body.email,
-                password: hashedPassword.hash,
-                salt: hashedPassword.salt
+                password: request.body.password,
             };
+            console.log(userRequest);
             users.insertNewCompany(userRequest, function (error, result) {
                 if (error) {
                     console.log(error);
