@@ -61,9 +61,8 @@ let user = {
             value: request.body.email
         }, function(error, result){
             response.json(result);
-            console.log(result[0])
             if (request.body.password === result[0].password){
-                console.log("Login Success");
+                response.redirect("/api/influencer");
             } else {
                 console.log("improper login credentials")
             }
