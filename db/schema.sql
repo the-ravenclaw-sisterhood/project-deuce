@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.25)
 # Database: influence_ya
-# Generation Time: 2019-07-05 20:19:30 +0000
+# Generation Time: 2019-07-06 13:09:56 +0000
 # ************************************************************
 
 
@@ -33,7 +33,6 @@ CREATE TABLE `company` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `influencer_id` int(11) DEFAULT NULL,
-  `is_online` tinyint(4) NOT NULL,
   PRIMARY KEY (`company_id`),
   KEY `influencer_id` (`influencer_id`),
   CONSTRAINT `company_ibfk_1` FOREIGN KEY (`influencer_id`) REFERENCES `influencer` (`influencer_id`)
@@ -42,13 +41,13 @@ CREATE TABLE `company` (
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
 
-INSERT INTO `company` (`company_id`, `company_name`, `bio`, `max_price`, `email`, `password`, `influencer_id`, `is_online`)
+INSERT INTO `company` (`company_id`, `company_name`, `bio`, `max_price`, `email`, `password`, `influencer_id`)
 VALUES
-	(1,'lacroix','somewhat bland water',1000000,'lacroix@gmail.com','lacroix123',NULL,0),
-	(2,'nike','athletic merch',2000000,'nike@gmail.com','nike123',NULL,0),
-	(3,'marriot','your home away from home',3000000,'marriot@gmail.com','marriot123',NULL,0),
-	(4,'wendys','burgers and fries',4000000,'wendys@gmail.com','wendys123',NULL,0),
-	(5,'bud light','quality brews',5000000,'buds@gmail.com','buds123',NULL,0);
+	(1,'lacroix','somewhat bland water',1000000,'lacroix@gmail.com','lacroix123',NULL),
+	(2,'nike','athletic merch',2000000,'nike@gmail.com','nike123',NULL),
+	(3,'marriot','your home away from home',3000000,'marriot@gmail.com','marriot123',NULL),
+	(4,'wendys','burgers and fries',4000000,'wendys@gmail.com','wendys123',NULL),
+	(5,'bud light','quality brews',5000000,'buds@gmail.com','buds123',NULL);
 
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -68,20 +67,19 @@ CREATE TABLE `influencer` (
   `bio` varchar(256) DEFAULT '',
   `followers` int(11) NOT NULL,
   `price` int(11) NOT NULL,
-  `is_online` tinyint(4) NOT NULL,
   PRIMARY KEY (`influencer_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `influencer` WRITE;
 /*!40000 ALTER TABLE `influencer` DISABLE KEYS */;
 
-INSERT INTO `influencer` (`influencer_id`, `first_name`, `last_name`, `email`, `password`, `bio`, `followers`, `price`, `is_online`)
+INSERT INTO `influencer` (`influencer_id`, `first_name`, `last_name`, `email`, `password`, `bio`, `followers`, `price`)
 VALUES
-	(1,'hanzel','bread','hanzel@gmail.com','hanzel123','hi im hanzel',5000,10000,0),
-	(2,'thadius','quantum','thad@gmail.com','thad123','hi im thad',900000,50000,0),
-	(3,'rachel','smokes','rach@gmail.com','chel123','hi im rachel',750000,55000,0),
-	(4,'veronica','beansby','veronica@gmail.com','ronica123','hi im veronica',600000,400000,0),
-	(5,'johnny','lightfoot','johnny@gmail.com','john123','hi im johnny',400000,100000,0);
+	(1,'hanzel','bread','hanzel@gmail.com','hanzel123','hi im hanzel',5000,10000),
+	(2,'thadius','quantum','thad@gmail.com','thad123','hi im thad',900000,50000),
+	(3,'rachel','nielson','rach@gmail.com','chel123','hi im rachel',750000,55000),
+	(4,'veronica','beansby','veronica@gmail.com','ronica123','hi im veronica',600000,400000),
+	(5,'johnny','lightfoot','johnny@gmail.com','john123','hi im johnny',400000,100000);
 
 /*!40000 ALTER TABLE `influencer` ENABLE KEYS */;
 UNLOCK TABLES;
