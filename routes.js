@@ -6,6 +6,12 @@ module.exports = function (app) {
         // console.log("ROOT ROUTE")
         response.render("index");
     });
+
+    app.get("/newUser", function (request, response) {
+        // console.log("ROOT ROUTE")
+        response.render("newUserPage");
+    });
+
     app.get("/influencerSignUp", function (request, response) {
         response.render("../views/signUpInfluencer.handlebars")
 
