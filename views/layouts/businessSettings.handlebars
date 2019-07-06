@@ -135,19 +135,18 @@
                 $("#password").append(data[0].password);
                 $("#max_price").append(data[0].max_price);
             });
-        }
+        };
 
 
 
         $(".deleteBusiness").on("click", function () {
             var email = $("#delete_email").val();
-
-            console.log(email);
+            
             // Send the DELETE request.
             $.ajax({
                 method: "DELETE",
                 url: `/api/company/${email}`,
-            })
+            }).then(location.reload());
 
         });
 

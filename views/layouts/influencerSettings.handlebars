@@ -114,20 +114,15 @@
                         </div>
                     </div>
                     <div class="row">
-                        <a class=" waves-effect waves-light btn-large red deleteInfluencer"><i class="material-icons left"
-                                id="deleteInfluencer">delete</i>delete account</a>
+                        <a class=" waves-effect waves-light btn-large red deleteInfluencer"><i
+                                class="material-icons left" id="deleteInfluencer">delete</i>delete account</a>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">cancel</a>
                 </div>
             </div>
-
-
-
         </div>
-
-
     </div>
     </div>
 
@@ -160,14 +155,25 @@
         $(".deleteInfluencer").on("click", function () {
             var email = $("#delete_email").val();
 
-            console.log(email);
             // Send the DELETE request.
             $.ajax({
                 method: "DELETE",
                 url: `/api/influencer/${email}`,
-            })
+            }).then(location.reload());
 
         });
+
+        $("#update_save").on("click", function(){
+            console.log("click");
+            let newSettings = {
+                first_name: $("#first_name_update").val().trim(),
+                last_name: $("#last_name_update").val().trim(),
+                email: $("#email_update").val().trim(),
+                password: $("#password_update").val().trim(),
+                followers: $("#followers_update").val().trim(),
+                asking_price: $("#asking_price_update").val().trim(),
+            };
+        })
 
     });
 </script>
