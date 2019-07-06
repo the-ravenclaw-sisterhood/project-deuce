@@ -88,13 +88,49 @@ let user = {
         })
       },
 
-    //   updateInfluencer: function(request, response){
-    //     console.log(request.body)
-    //     orm.update({
-    //         table: "influencer",
-    //         column1: 
-    //     })
-    //   },
+      updateInfluencer: function(request, response){
+        orm.updateInfluencer({
+            table: "influencer",
+            column1: "first_name",
+            value1: request.body.first_name,
+            column2: "last_name",
+            value2: request.body.last_name,
+            column3: "email",
+            value3: request.body.email,
+            column4: "password",
+            value4: request.body.password,
+            column5: "bio",
+            value5: request.body.bio,
+            column6: "followers",
+            value6: request.body.followers,
+            column7: "price",
+            value7: request.body.price,
+            confirm: "password",
+            response: request.body.password,
+            
+        }, function(error, result){
+            response.json(result);
+        })
+      },
+      updateCompany: function(request, response){
+        orm.updateCompany({
+            table: "company",
+            column1: "company_name",
+            value1: request.body.company_name,
+            column2: "email",
+            value2: request.body.email,
+            column3: "password",
+            value3: request.body.password,
+            column4: "bio",
+            value4: request.body.bio,
+            column5: "max_price",
+            value5: request.body.max_price,
+            confirm: "password",
+            response: request.body.password,
+        }, function(error, result){
+            response.json(result);
+        })
+      },
 
     // selectByCompanyEmail: function(email, callback){
     //     let query = {

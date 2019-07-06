@@ -111,16 +111,26 @@ var orm = {
             console.log(statement.sql);
         }
     },
-    update: function(query, callback) {
-        console.log(query)
-        // let queryString = "UPDATE ?? SET ? WHERE ?";
-        // let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
-        //     callback(error, result);
-        // });
-        // if (query.debug){
-        //     console.log(statement.sql);
-        // }
+    updateInfluencer: function(query, callback) {
+
+        let queryString = "UPDATE ?? SET ?? = ?, ?? = ?, ?? = ?, ?? = ?, ?? =?, ?? = ?, ?? = ? WHERE ?? = ?";
+        let statement = connection.query(queryString, [query.table, query.column1, query.value1, query.column2, query.value2, query.column3, query.value3, query.column4, query.value4, query.column5, query.value5, query.column6, query.value6, query.column7, query.value7, query.confirm, query.response], function(error, result) {
+            callback(error, result);
+            console.log(statement);
+        });
+        if (query.debug){
+            console.log(statement.sql);
+        }
+    },
+    updateCompany: function(query, callback) {
+        let queryString = "UPDATE ?? SET ?? = ?, ?? = ?, ?? = ?, ?? = ?, ?? =? WHERE ?? = ?";
+        let statement = connection.query(queryString, [query.table, query.column1, query.value1, query.column2, query.value2, query.column3, query.value3, query.column4, query.value4, query.column5, query.value5, query.confirm, query.response], function(error, result) {
+            callback(error, result);
+        });
+        if (query.debug){
+            console.log(statement.sql);
+        };
     }
-  };
+};
   
   module.exports = orm;
