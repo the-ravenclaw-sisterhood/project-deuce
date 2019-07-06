@@ -43,7 +43,13 @@ module.exports = function (app) {
     });
     app.post("/api/influencer/login", function(request,response){
         user.loginInfluencer(request, response);
-    })
+    });
+    app.put("/api/influencer", function(request,response){
+        user.updateInfluencer(request, response);
+    });
+    app.put("/api/company", function(request,response){
+        user.updateCompany(request, response);
+    });
     // app.delete("/api/company/login", function(request, response) {
     //     user.logout(request, response);
     // });

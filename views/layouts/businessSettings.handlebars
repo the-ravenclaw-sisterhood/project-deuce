@@ -55,6 +55,10 @@
                         <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
+                                    <input id="company_name_update" type="text" class="validate">
+                                    <label for="company_name_update">Company Name</label>
+                                </div>
+                                <div class="input-field col s12">
                                     <input id="bio_update" type="text" class="validate">
                                     <label for="bio_update">Bio</label>
                                 </div>
@@ -74,7 +78,7 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input id="max_price_update" type="number" class="validate">
-                                    <label for="max_price_update">Asking Price</label>
+                                    <label for="max_price_update">Max Price</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -137,11 +141,9 @@
             });
         };
 
-
-
         $(".deleteBusiness").on("click", function () {
             var email = $("#delete_email").val();
-            
+
             // Send the DELETE request.
             $.ajax({
                 method: "DELETE",
@@ -149,6 +151,22 @@
             }).then(location.reload());
 
         });
+
+        $("#update_save").on("click", function () {
+            
+            let newSettings = {
+                company_name: $("#company_name_update").val().trim(),
+                bio: $("#bio_update").val().trim(),
+                email: $("#email_update").val().trim(),
+                password: $("#password_update").val().trim(),
+                max_price: $("#max_price_update").val().trim(),
+            };
+            $.ajax({
+                method: "PUT",
+                url: "/api/company",
+                data: newSettings
+            }).then();
+        })
 
 
     });

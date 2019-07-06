@@ -163,8 +163,8 @@
 
         });
 
-        $("#update_save").on("click", function(){
-            console.log("click");
+        $("#update_save").on("click", function () {
+
             let newSettings = {
                 first_name: $("#first_name_update").val().trim(),
                 last_name: $("#last_name_update").val().trim(),
@@ -173,6 +173,11 @@
                 followers: $("#followers_update").val().trim(),
                 asking_price: $("#asking_price_update").val().trim(),
             };
+            $.ajax({
+                method: "PUT",
+                url: "/api/influencer",
+                data: newSettings
+            }).then();
         })
 
     });

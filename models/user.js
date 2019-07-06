@@ -70,7 +70,6 @@ let user = {
     },
 
     removeCompany: function(request, response) {
-        console.log(request);
         orm.delete({
             table: "company",
             column: "email",
@@ -80,13 +79,20 @@ let user = {
         })
       },
     removeInfluencer: function(request, response) {
-        console.log(request);
         orm.delete({
             table: "influencer",
             column: "email",
             id: request.params.id,
         }, function(error, result){
             response.json(result);
+        })
+      },
+
+      updateInfluencer: function(request, response){
+        console.log(request.body)
+        orm.update({
+            table: "influencer",
+            column
         })
       },
 

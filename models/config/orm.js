@@ -101,7 +101,6 @@ var orm = {
             callback(result)
         });
     },
-
       
     insert: function(query, callback) {
         let queryString = "INSERT INTO ?? SET ?";
@@ -113,19 +112,15 @@ var orm = {
         }
     },
     update: function(query, callback) {
-        let queryString = "UPDATE ?? SET ? WHERE ?";
-        let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
-            callback(error, result);
-        });
-        if (query.debug){
-            console.log(statement.sql);
-        }
-    },
-    // query: function(queryString, queryArray, callback) {
-    //     connection.query(queryString, queryArray, function(error, result) {
-    //         callback(error, result);
-    //     });
-    // }
+        console.log(query)
+        // let queryString = "UPDATE ?? SET ? WHERE ?";
+        // let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
+        //     callback(error, result);
+        // });
+        // if (query.debug){
+        //     console.log(statement.sql);
+        // }
+    }
   };
   
   module.exports = orm;
