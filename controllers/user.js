@@ -1,5 +1,3 @@
-let hashPass = require('hashPass');
-let uuidv1 = require('uuid/v1');
 let users = require('../models/user')
 
 let user = {
@@ -8,16 +6,13 @@ let user = {
             response.status(400).json({
                 'error': 'email is not valid'
             });
-        } else if (request.body.password !== request.body.password_confirm) {
-            response.status(400).json({
-                'error': 'passwords do not match'
-            });
         } else {
-            let hashedPassword = hashPass(request.body.password);
             let userRequest = {
+                company_name: request.body.company_name,
+                bio: request.body.bio,
+                max_price: request.body.max_price,
                 email: request.body.email,
-                password: hashedPassword.hash,
-                salt: hashedPassword.salt
+                password: request.body.password,
             };
             users.insertNewCompany(userRequest, function (error, result) {
                 if (error) {
@@ -47,15 +42,14 @@ let user = {
                 'error': 'email is not valid'
             });
         } else {
-            let hashedPassword = hashPass(request.body.password);
             let userRequest = {
                 first_name: request.body.first_name,
                 last_name: request.body.last_name,
                 email: request.body.email,
+                bio: request.body.bio,
                 followers: request.body.followers,
                 price: request.body.price,
-                password: hashedPassword.hash,
-                salt: hashedPassword.salt
+                password: request.body.password
             };
             users.insertNewInfluencer(userRequest, function (error, result) {
                 if (error) {

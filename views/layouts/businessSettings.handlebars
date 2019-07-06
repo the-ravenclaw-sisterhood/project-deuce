@@ -55,6 +55,10 @@
                         <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
+                                    <input id="company_name_update" type="text" class="validate">
+                                    <label for="company_name_update">Company Name</label>
+                                </div>
+                                <div class="input-field col s12">
                                     <input id="bio_update" type="text" class="validate">
                                     <label for="bio_update">Bio</label>
                                 </div>
@@ -74,7 +78,7 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input id="max_price_update" type="number" class="validate">
-                                    <label for="max_price_update">Asking Price</label>
+                                    <label for="max_price_update">Max Price</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -98,12 +102,12 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="delete_email" type="email" class="validate">
-                            <label for="delete_email">Email</label>
+                            <label for="delete_email" id="delete_email">Email</label>
                         </div>
                     </div>
                     <div class="row">
-                        <a class=" waves-effect waves-light btn-large red"><i
-                                class="material-icons left" id="deleteBusiness">delete</i>delete account</a>
+                        <a class=" waves-effect waves-light btn-large red deleteBusiness"><i class="material-icons left"
+                                id="deleteBusiness">delete</i>delete account</a>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -135,25 +139,34 @@
                 $("#password").append(data[0].password);
                 $("#max_price").append(data[0].max_price);
             });
-        }
-
-
+        };
 
         $(".deleteBusiness").on("click", function () {
-            console.log("clicked");
-            var email = $("delete_email").val();
+            var email = $("#delete_email").val();
 
             // Send the DELETE request.
-            $.ajax("/api/company/" + email, {
-                type: "DELETE",
-            }).then(
-                function () {
-                    console.log("deleted business", email);
-                    // Reload the page to get the updated list
-                    
-                }
-            );
+            $.ajax({
+                method: "DELETE",
+                url: `/api/company/${email}`,
+            }).then(location.reload());
+
         });
+
+        $("#update_save").on("click", function () {
+            
+            let newSettings = {
+                company_name: $("#company_name_update").val().trim(),
+                bio: $("#bio_update").val().trim(),
+                email: $("#email_update").val().trim(),
+                password: $("#password_update").val().trim(),
+                max_price: $("#max_price_update").val().trim(),
+            };
+            $.ajax({
+                method: "PUT",
+                url: "/api/company",
+                data: newSettings
+            }).then();
+        })
 
 
     });

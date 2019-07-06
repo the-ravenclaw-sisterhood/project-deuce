@@ -1,5 +1,5 @@
 let orm = require("./config/orm");
-require('../routes');
+
 
 let user = {
     insertNewCompany: function (user, callback) {
@@ -69,6 +69,33 @@ let user = {
         });
     },
 
+    removeCompany: function(request, response) {
+        orm.delete({
+            table: "company",
+            column: "email",
+            id: request.params.id,
+        }, function(error, result){
+            response.json(result);
+        })
+      },
+    removeInfluencer: function(request, response) {
+        orm.delete({
+            table: "influencer",
+            column: "email",
+            id: request.params.id,
+        }, function(error, result){
+            response.json(result);
+        })
+      },
+
+    //   updateInfluencer: function(request, response){
+    //     console.log(request.body)
+    //     orm.update({
+    //         table: "influencer",
+    //         column1: 
+    //     })
+    //   },
+
     // selectByCompanyEmail: function(email, callback){
     //     let query = {
     //         table: 'company',
@@ -117,14 +144,6 @@ let user = {
 
     },
 
-
-    removeUser: function(condition, cb) {
-        orm.delete("company", condition, function(res) {
-          cb(res);
-        });
-      }
-
-      
         // getInfluencer: function(session, callback){
         //     let query= {
         //         table: 'influencer',

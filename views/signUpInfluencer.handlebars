@@ -120,21 +120,19 @@
     });
 
     $("#influencerSubmitBtn").on("click", function (event) {
-        console.log("click");
 
         let newUser = {
             first_name: $("#influencer_first_name").val(),
             last_name: $("#influencer_last_name").val(),
             email: $("#influencer_email").val(),
             password: $("#influencer_password").val(),
-            bio: $("influencer_bio").val(),
+            bio: $("#influencer_bio").val(),
             followers: Number($("#influencer_input_followers").val()),
             price: Number($(".influencer_priceRange").val()),
 
         }
 
-        $.post("/api/influencer", newUser, function (data) {
-            location.reload();
+        $.post("/api/influencer", newUser, function () {
         });
     });
 </script>

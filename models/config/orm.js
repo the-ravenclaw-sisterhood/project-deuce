@@ -93,30 +93,14 @@ var orm = {
         queryString += whereString.join(operator);
         return queryString;
     },
-    // delete: function(tableInput, valofCol) {
-    //     let queryString = "DELETE FROM ?? WHERE ?";
-    //     connection.query(queryString, [tableInput, valofCol], function(err, result) {
-        
-    //     if (err) throw err;
-    //         console.log(result);
-    //     });
-    // },
 
-
-    delete: function(table, condition, cb) {
-        var queryString = "DELETE FROM " + table;
-        queryString += " WHERE ";
-        queryString += condition;
-    
-        connection.query(queryString, function(err, result) {
-          if (err) {
-            throw err;
-          }
-    
-          cb(result);
+    delete: function (queryObject, callback) {
+        let queryString = 'DELETE FROM ?? WHERE ?? = ?';
+        connection.query(queryString, [queryObject.table, queryObject.column, queryObject.id], function (err, result) {
+            if (err) throw err;
+            callback(result)
         });
-      },
-
+    },
       
     insert: function(query, callback) {
         let queryString = "INSERT INTO ?? SET ?";
@@ -128,19 +112,15 @@ var orm = {
         }
     },
     update: function(query, callback) {
-        let queryString = "UPDATE ?? SET ? WHERE ?";
-        let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
-            callback(error, result);
-        });
-        if (query.debug){
-            console.log(statement.sql);
-        }
-    },
-    // query: function(queryString, queryArray, callback) {
-    //     connection.query(queryString, queryArray, function(error, result) {
-    //         callback(error, result);
-    //     });
-    // }
+        console.log(query)
+        // let queryString = "UPDATE ?? SET ? WHERE ?";
+        // let statement = connection.query(queryString, [query.table, query.data, query.where[0]], function(error, result) {
+        //     callback(error, result);
+        // });
+        // if (query.debug){
+        //     console.log(statement.sql);
+        // }
+    }
   };
   
   module.exports = orm;

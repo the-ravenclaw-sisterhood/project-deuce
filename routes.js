@@ -1,4 +1,5 @@
 var user = require("./models/user");
+let users = require("./controllers/user")
 
 module.exports = function (app) {
 
@@ -32,17 +33,23 @@ module.exports = function (app) {
     });
 
     app.post("/api/company", function(request, response) {
-        user.createCompany(request, response);
+        users.createCompany(request, response);
     });
     app.post("/api/influencer", function(request, response) {
-        user.createInfluencer(request, response);
+        users.createInfluencer(request, response);
     });
     app.post("/api/company/login", function(request, response) {
         user.loginCompany(request, response);
     });
     app.post("/api/influencer/login", function(request,response){
         user.loginInfluencer(request, response);
-    })
+    });
+    // app.put("/api/influencer", function(request,response){
+    //     user.updateInfluencer(request, response);
+    // });
+    // app.put("/api/company", function(request,response){
+    //     user.updateCompany(request, response);
+    // });
     // app.delete("/api/company/login", function(request, response) {
     //     user.logout(request, response);
     // });
@@ -52,20 +59,12 @@ module.exports = function (app) {
     // });
     
 
-    app.delete("/api/company/:id", function(req, res) {
-        var condition = "email = " + req.params.email;
-      
-        cat.delete(condition, function(result) {
-          if (result.affectedRows == 0) {
-            // If no rows were changed, then the ID must not exist, so 404
-            return res.status(404).end();
-          } else {
-            res.status(200).end();
-          }
-        });
+    app.delete("/api/company/:id", function(request, response) {
+        user.removeCompany(request, response);
       });
-
-
+    app.delete("/api/influencer/:id", function(request, response) {
+        user.removeInfluencer(request, response);
+      });
 
     app.get("/api/influencer", function (request, response) {
         user.getCompany(function (data) {
