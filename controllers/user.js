@@ -17,7 +17,6 @@ let user = {
                 email: request.body.email,
                 password: request.body.password,
             };
-            console.log(userRequest);
             users.insertNewCompany(userRequest, function (error, result) {
                 if (error) {
                     console.log(error);
