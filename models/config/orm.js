@@ -69,6 +69,7 @@ var orm = {
         connection.query(queryString, searchCriteria, function (err, result) {
             // if (err) throw err;
             callback(err, result);
+            // console.log(result);
         });
     },
     selectAll: function(tableInput, cb) {
