@@ -2,7 +2,6 @@ let users = require('../models/user')
 
 let user = {
     createCompany: function (request, response) {
-        console.log(request);
         if (!request.body.email.includes('@') || !request.body.email.includes('.')) {
             response.status(400).json({
                 'error': 'email is not valid'

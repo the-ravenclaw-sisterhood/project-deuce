@@ -93,29 +93,14 @@ var orm = {
         queryString += whereString.join(operator);
         return queryString;
     },
-    // delete: function(tableInput, valofCol) {
-    //     let queryString = "DELETE FROM ?? WHERE ?";
-    //     connection.query(queryString, [tableInput, valofCol], function(err, result) {
-        
-    //     if (err) throw err;
-    //         console.log(result);
-    //     });
-    // },
 
-
-    delete: function(table, condition, cb) {
-        var queryString = "DELETE FROM " + table;
-        queryString += " WHERE ";
-        queryString += condition;
-    
-        connection.query(queryString, function(err, result) {
-          if (err) {
-            throw err;
-          }
-    
-          cb(result);
+    delete: function (queryObject, callback) {
+        let queryString = 'DELETE FROM ?? WHERE ?? = ?';
+        connection.query(queryString, [queryObject.table, queryObject.column, queryObject.id], function (err, result) {
+            if (err) throw err;
+            callback(result)
         });
-      },
+    },
 
       
     insert: function(query, callback) {

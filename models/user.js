@@ -71,9 +71,13 @@ let user = {
 
     removeUser: function(request, response) {
         console.log(request);
-        // orm.delete("company", condition, function(res) {
-        //   cb(res);
-        // });
+        orm.delete({
+            table: "company",
+            column: "email",
+            id: request.params.id,
+        }, function(error, result){
+            response.json(result);
+        })
       },
 
     // selectByCompanyEmail: function(email, callback){
