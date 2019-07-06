@@ -95,7 +95,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="#" class="waves-effect waves-light btn blue" id="busLogin">Login</a>
+                        <a href="/api/company" class="waves-effect waves-light btn blue" id="busLogin">Login</a>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="/api/influencer" class="waves-effect waves-light btn blue">Login</a>
+                        <a href="#" class="waves-effect waves-light btn blue" id="infLogin">Login</a>
                     </div>
                 </div>
             </div>
@@ -210,17 +210,25 @@
             )
         });
 
-        $("#busLogin").on("click", function(){
+    });
 
-            let busVerification = {
-                email: $("#busEmail").val(),
-                password: $("#busPassword").val()
-            };
+    $("#busLogin").on("click", function () {
+        let busVerification = {
+            email: $("#busEmail").val(),
+            password: $("#busPassword").val()
+        };
 
-            $.post("/api/company/login", busVerification);
-            
-        })
+        $.post("/api/company/login", busVerification);
+    });
 
+    $("#infLogin").on("click", function () {
+        let infVerification = {
+            email: $("#infEmail").val(),
+            password: $("#infPassword").val()
+        };
+
+        console.log(infVerification);
+        $.post("/api/influencer/login", infVerification);
 
     });
 

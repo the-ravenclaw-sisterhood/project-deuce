@@ -46,7 +46,6 @@ let user = {
             value: request.body.email
         }, function(error, result){
             response.json(result);
-            console.log(result)
             if (request.body.password === result[0].password){
                 console.log("Login Success");
             } else {
@@ -56,35 +55,19 @@ let user = {
     },
 
     loginInfluencer: function (request, response) {
-        users.selectByInfluencerEmail(request.body.email, function (error, result) {
-            if (error) {
-                console.log(error);
-                response.status(500).json({
-                    'error': 'oops we did something bad'
-                });
-            } else if (!result.length) {
-                response.status(404).json({
-                    'error': 'user not found'
-                });
+        orm.select({
+            table: "influencer",
+            column: "email",
+            value: request.body.email
+        }, function(error, result){
+            response.json(result);
+            console.log(result[0])
+            if (request.body.password === result[0].password){
+                console.log("Login Success");
             } else {
-                user = result[0];
-                loginAttempt = hashPass(request.body.password, user.salt);
-                if (loginAttempt.hash === user.password) {
-                    let uuid = uuidv1();
-                    users.updateSession(user.email, uuid, function (error, result) {
-                        delete user.password;
-                        delete user.salt;
-                        delete user.session;
-                        response.header('x-session-token', uuid).json(user);
-                    });
-                } else {
-                    response.status(401).json({
-                        'error': 'improper login credentials'
-                    });
-                }
+                console.log("improper login credentials")
             }
         });
-        console.log("influencer logged in");
     },
 
     // selectByCompanyEmail: function(email, callback){
