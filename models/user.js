@@ -144,8 +144,7 @@ let user = {
 
     },
 
-<<<<<<< HEAD
-=======
+
 
     removeUser: function(condition, cb) {
         orm.delete("company", condition, function(res) {
@@ -159,7 +158,7 @@ let user = {
       }
 
       
->>>>>>> Justin_delete_user2
+
         // getInfluencer: function(session, callback){
         //     let query= {
         //         table: 'influencer',

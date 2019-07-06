@@ -93,10 +93,6 @@
                                 <a data-target="modal2" class="modal-trigger waves-effect waves-light btn-large red"
                                     href="#modal1"><i class="material-icons left">delete</i>delete account</a>
                             </div>
-<<<<<<< HEAD:views/layouts/influencerSettings.handlebars
-=======
-
->>>>>>> Justin_delete_user2:views/influencerSettings.handlebars
                         </form>
                     </div>
 
@@ -110,18 +106,6 @@
             <!-- Modal Structure -->
             <div id="modal2" class="modal">
                 <div class="modal-content">
-<<<<<<< HEAD:views/layouts/influencerSettings.handlebars
-                    <h4>Enter Your Email</h4>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="delete_email" type="email" class="validate">
-                            <label for="delete_email" id="delete_email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <a class=" waves-effect waves-light btn-large red deleteInfluencer"><i
-                                class="material-icons left" id="deleteInfluencer">delete</i>delete account</a>
-=======
                     <h4>Enter Your Password</h4>
                     <div class="row">
                         <div class="input-field col s12">
@@ -132,19 +116,15 @@
                     <div class="row">
                         <a class=" waves-effect waves-light btn-large red" id="deleteInfluencer"><i
                                 class="material-icons left">delete</i>delete account</a>
->>>>>>> Justin_delete_user2:views/influencerSettings.handlebars
                     </div>
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">cancel</a>
                 </div>
             </div>
-<<<<<<< HEAD:views/layouts/influencerSettings.handlebars
-=======
 
 
 
->>>>>>> Justin_delete_user2:views/influencerSettings.handlebars
         </div>
     </div>
     </div>
@@ -163,10 +143,7 @@
 
         function getInfluencerSettings() {
             $.get("/api/influencer/1", function (data) {
-<<<<<<< HEAD:views/layouts/influencerSettings.handlebars
-=======
                 console.log(data);
->>>>>>> Justin_delete_user2:views/influencerSettings.handlebars
 
                 $("#influencerName").append("Hello, " + data[0].first_name);
                 $("#first_name").append(data[0].first_name);
