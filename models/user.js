@@ -144,6 +144,22 @@ let user = {
 
     },
 
+<<<<<<< HEAD
+=======
+
+    removeUser: function(condition, cb) {
+        orm.delete("company", condition, function(res) {
+          cb(res);
+        });
+      },
+      removeUser: function(condition, cb) {
+        orm.delete("influencer", condition, function(res) {
+          cb(res);
+        });
+      }
+
+      
+>>>>>>> Justin_delete_user2
         // getInfluencer: function(session, callback){
         //     let query= {
         //         table: 'influencer',

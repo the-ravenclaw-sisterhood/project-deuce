@@ -25,11 +25,11 @@ module.exports = function (app) {
 
     app.get("/businesssettings", function (request, response) {
         // console.log("ROOT ROUTE")
-        response.render("layouts/businessSettings");
+        response.render("businessSettings");
     });
     app.get("/influencersettings", function (request, response) {
         // console.log("ROOT ROUTE")
-        response.render("layouts/influencerSettings");
+        response.render("influencerSettings");
     });
 
     app.post("/api/company", function(request, response) {
@@ -59,11 +59,40 @@ module.exports = function (app) {
     // });
     
 
+<<<<<<< HEAD
     app.delete("/api/company/:id", function(request, response) {
         user.removeCompany(request, response);
       });
     app.delete("/api/influencer/:id", function(request, response) {
         user.removeInfluencer(request, response);
+=======
+    app.delete("/api/businessSettings/:password", function (req, res) {
+        var condition = "password = " + "'" + req.params.password +"'";
+        console.log("*****************************")
+        console.log("Condition = " + condition);
+        user.removeUser(condition, function (result) {
+            if (result.affectedRows == 0) {
+                // If no rows were changed, then the ID must not exist, so 404
+                return res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        });
+      });
+
+      app.delete("/api/influencersettings/:password", function (req, res) {
+        var condition = "password = " + "'" + req.params.password +"'";
+        console.log("*****************************")
+        console.log("Condition = " + condition);
+        user.removeUser(condition, function (result) {
+            if (result.affectedRows == 0) {
+                // If no rows were changed, then the ID must not exist, so 404
+                return res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        });
+>>>>>>> Justin_delete_user2
       });
 
     app.get("/api/influencer", function (request, response) {

@@ -1,6 +1,8 @@
 <!-- Nav bar -->
 <nav class="secondaryNavBar">
-    <div class="nav-wrapper" id="logoAni">
+
+    <div class="nav-wrapper">
+
         <div class="row">
             <div class="col s12">
                 <a href="/" target="_blank" class="brand-logo">Influence<span
@@ -22,21 +24,19 @@
             <img src="../public/assets/images/background_app.jpg">
         </div>
     </div>
+
     <div class="section white">
         <div class="row container">
-            <h2 class="header" id="influencerName"></h2>
-
+            <h2 class="header" id="companyName"></h2>
             <div class="row">
                 <div class="col s12">
                     <div class="card black darken-1">
                         <div class="card-content white-text">
                             <span class="card-title">Account Settings</span>
-                            <p id="first_name">FIRST NAME: </p>
-                            <p id="last_name">LAST NAME: </p>
+                            <p id="bio">BIO: </p>
                             <p id="email">EMAIL: </p>
                             <p id="password">PASSWORD: </p>
-                            <p id="followers">FOLLOWERS: </p>
-                            <p id="asking_price">ASKING PRICE: </p>
+                            <p id="max_price">MAX PRICE: </p>
                         </div>
                         <div class="card-action">
                             <button data-target="modal1" class="modal-trigger" href="#modal1" id="loginBtn"> Update
@@ -55,14 +55,12 @@
                         <form class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="first_name_update" type="text" class="validate">
-                                    <label for="first_name_update">First Name</label>
+                                    <input id="company_name_update" type="text" class="validate">
+                                    <label for="company_name_update">Company Name</label>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="last_name_update" type="text" class="validate">
-                                    <label for="last_name_update">Last Name</label>
+                                    <input id="bio_update" type="text" class="validate">
+                                    <label for="bio_update">Bio</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -79,14 +77,8 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="followers_update" type="number" class="validate">
-                                    <label for="followers_update">Number of Followers</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="asking_price_update" type="number" class="validate">
-                                    <label for="asking_price_update">Asking Price</label>
+                                    <input id="max_price_update" type="number" class="validate">
+                                    <label for="max_price_update">Max Price</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -106,25 +98,37 @@
             <!-- Modal Structure -->
             <div id="modal2" class="modal">
                 <div class="modal-content">
-                    <h4>Enter Your Email</h4>
+                    <h4>Enter Your Password</h4>
                     <div class="row">
                         <div class="input-field col s12">
+<<<<<<< HEAD:views/layouts/businessSettings.handlebars
                             <input id="delete_email" type="email" class="validate">
                             <label for="delete_email" id="delete_email">Email</label>
                         </div>
                     </div>
                     <div class="row">
-                        <a class=" waves-effect waves-light btn-large red deleteInfluencer"><i
-                                class="material-icons left" id="deleteInfluencer">delete</i>delete account</a>
+                        <a class=" waves-effect waves-light btn-large red deleteBusiness"><i class="material-icons left"
+                                id="deleteBusiness">delete</i>delete account</a>
+=======
+                            <input id="delete_business" type="password" class="validate">
+                            <label for="delete_business">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a class=" waves-effect waves-light btn-large red" id="deleteBusiness"><i class="material-icons left"
+                                >delete</i>delete account</a>
+>>>>>>> Justin_delete_user2:views/businessSettings.handlebars
                     </div>
                 </div>
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">cancel</a>
                 </div>
             </div>
+
         </div>
+
     </div>
-    </div>
+
 
 </section>
 <!-- Main Page -->
@@ -135,50 +139,64 @@
     $(document).ready(function () {
         $('.sidenav').sidenav();
         $('.modal').modal();
+        getCompanySettings();
 
-        getInfluencerSettings();
-
-        function getInfluencerSettings() {
-            $.get("/api/influencer/1", function (data) {
-
-                $("#influencerName").append("Hello, " + data[0].first_name);
-                $("#first_name").append(data[0].first_name);
-                $("#last_name").append(data[0].last_name);
+        function getCompanySettings() {
+            $.get("/api/company/2", function (data) {
+                $("#companyName").append(data[0].company_name);
+                $("#bio").append(data[0].bio);
                 $("#email").append(data[0].email);
                 $("#password").append(data[0].password);
-                $("#followers").append(data[0].followers);
-                $("#asking_price").append(data[0].price);
-
+                $("#max_price").append(data[0].max_price);
             });
         };
 
-        $(".deleteInfluencer").on("click", function () {
+<<<<<<< HEAD:views/layouts/businessSettings.handlebars
+        $(".deleteBusiness").on("click", function () {
             var email = $("#delete_email").val();
 
             // Send the DELETE request.
             $.ajax({
                 method: "DELETE",
-                url: `/api/influencer/${email}`,
+                url: `/api/company/${email}`,
             }).then(location.reload());
 
+=======
+        $("#deleteBusiness").on("click", function () {
+            console.log("clicked");
+            var password = $("#delete_business").val();
+            console.log(password);
+
+            // Send the DELETE request.
+            $.ajax("/api/businessSettings/" + password, {
+                type: "DELETE",
+            }).then(
+                function () {
+                    console.log("deleted business");
+                    // Reload the page to get the updated list
+
+                }
+            );
+>>>>>>> Justin_delete_user2:views/businessSettings.handlebars
         });
 
         $("#update_save").on("click", function () {
-
+            
             let newSettings = {
-                first_name: $("#first_name_update").val().trim(),
-                last_name: $("#last_name_update").val().trim(),
+                company_name: $("#company_name_update").val().trim(),
+                bio: $("#bio_update").val().trim(),
                 email: $("#email_update").val().trim(),
                 password: $("#password_update").val().trim(),
-                followers: $("#followers_update").val().trim(),
-                asking_price: $("#asking_price_update").val().trim(),
+                max_price: $("#max_price_update").val().trim(),
             };
             $.ajax({
                 method: "PUT",
-                url: "/api/influencer",
+                url: "/api/company",
                 data: newSettings
             }).then();
         })
 
+
     });
+
 </script>
