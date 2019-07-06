@@ -69,10 +69,20 @@ let user = {
         });
     },
 
-    removeUser: function(request, response) {
+    removeCompany: function(request, response) {
         console.log(request);
         orm.delete({
             table: "company",
+            column: "email",
+            id: request.params.id,
+        }, function(error, result){
+            response.json(result);
+        })
+      },
+    removeInfluencer: function(request, response) {
+        console.log(request);
+        orm.delete({
+            table: "influencer",
             column: "email",
             id: request.params.id,
         }, function(error, result){

@@ -15,9 +15,9 @@
 <!-- Nav bar -->
 
 <!-- Settings page -->
-<section class="userProfile">
+<section class="SecondarySection">
 
-    <div class="parallax-container">
+    <div class="parallax-container" id="secondaryParallax">
         <div class="parallax">
             <img src="../public/assets/images/background_app.jpg">
         </div>
@@ -89,6 +89,10 @@
                                     <label for="asking_price_update">Asking Price</label>
                                 </div>
                             </div>
+                            <div class="row">
+                                <a data-target="modal2" class="modal-trigger waves-effect waves-light btn-large red"
+                                    href="#modal1"><i class="material-icons left">delete</i>delete account</a>
+                            </div>
                         </form>
                     </div>
 
@@ -96,6 +100,26 @@
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="update_save">Save</a>
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4>Enter Your Email</h4>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="delete_email" type="email" class="validate">
+                            <label for="delete_email" id="delete_email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a class=" waves-effect waves-light btn-large red deleteInfluencer"><i class="material-icons left"
+                                id="deleteInfluencer">delete</i>delete account</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">cancel</a>
                 </div>
             </div>
 
@@ -121,18 +145,29 @@
 
         function getInfluencerSettings() {
             $.get("/api/influencer/1", function (data) {
-                console.log(data);
-               
-               $("#influencerName").append("Hello, " + data[0].first_name);
-               $("#first_name").append(data[0].first_name);
-               $("#last_name").append(data[0].last_name);
-               $("#email").append(data[0].email);
-               $("#password").append(data[0].password);
-               $("#followers").append(data[0].followers);
-               $("#asking_price").append(data[0].price);
-               
+
+                $("#influencerName").append("Hello, " + data[0].first_name);
+                $("#first_name").append(data[0].first_name);
+                $("#last_name").append(data[0].last_name);
+                $("#email").append(data[0].email);
+                $("#password").append(data[0].password);
+                $("#followers").append(data[0].followers);
+                $("#asking_price").append(data[0].price);
+
             });
-        }
+        };
+
+        $(".deleteInfluencer").on("click", function () {
+            var email = $("#delete_email").val();
+
+            console.log(email);
+            // Send the DELETE request.
+            $.ajax({
+                method: "DELETE",
+                url: `/api/influencer/${email}`,
+            })
+
+        });
 
     });
 </script>

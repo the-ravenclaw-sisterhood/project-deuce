@@ -54,7 +54,10 @@ module.exports = function (app) {
     
 
     app.delete("/api/company/:id", function(request, response) {
-        user.removeUser(request, response);
+        user.removeCompany(request, response);
+      });
+    app.delete("/api/influencer/:id", function(request, response) {
+        user.removeInfluencer(request, response);
       });
 
     app.get("/api/influencer", function (request, response) {
