@@ -1,5 +1,5 @@
 <!-- Nav bar -->
-<nav>
+<nav class="secondaryNavBar">
     <div class="nav-wrapper">
         <div class="row">
             <div class="col s12">
@@ -17,9 +17,9 @@
 <!-- Nav bar -->
 
 <!-- Settings page -->
-<section class="userProfile">
+<section class="SecondarySection">
 
-    <div class="parallax-container">
+    <div class="parallax-container" id="secondaryParallax">
         <div class="parallax">
             <img src="../public/assets/images/background_app.jpg">
         </div>
@@ -77,6 +77,10 @@
                                     <label for="max_price_update">Asking Price</label>
                                 </div>
                             </div>
+                            <div class="row">
+                                <a data-target="modal2" class="modal-trigger waves-effect waves-light btn-large red"
+                                    href="#modal1"><i class="material-icons left">delete</i>delete account</a>
+                            </div>
                         </form>
                     </div>
 
@@ -84,6 +88,26 @@
                 <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat" id="update_save">Save</a>
                     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                </div>
+            </div>
+
+            <!-- Modal Structure -->
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <h4>Enter Your Email</h4>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="delete_email" type="email" class="validate">
+                            <label for="delete_email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a class=" waves-effect waves-light btn-large red"><i
+                                class="material-icons left" id="deleteBusiness">delete</i>delete account</a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">cancel</a>
                 </div>
             </div>
 
@@ -112,6 +136,26 @@
                 $("#max_price").append(data[0].max_price);
             });
         }
+
+
+
+        $(".deleteBusiness").on("click", function () {
+            console.log("clicked");
+            var email = $("delete_email").val();
+
+            // Send the DELETE request.
+            $.ajax("/api/company/" + email, {
+                type: "DELETE",
+            }).then(
+                function () {
+                    console.log("deleted business", email);
+                    // Reload the page to get the updated list
+                    
+                }
+            );
+        });
+
+
     });
 
 </script>
