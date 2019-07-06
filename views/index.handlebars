@@ -211,13 +211,11 @@
         });
 
         $("#busLogin").on("click", function(){
-            console.log("click");
 
             let busVerification = {
                 email: $("#busEmail").val(),
                 password: $("#busPassword").val()
             };
-            console.log(busVerification);
 
             $.post("/api/company/login", busVerification);
             

@@ -46,9 +46,11 @@ let user = {
             value: request.body.email
         }, function(error, result){
             response.json(result);
-            console.log(request.body.password, result[0].password)
+            console.log(result)
             if (request.body.password === result[0].password){
-                console.log("fire");
+                console.log("Login Success");
+            } else {
+                console.log("improper login credentials")
             }
         });
     },

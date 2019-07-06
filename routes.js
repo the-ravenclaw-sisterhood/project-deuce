@@ -33,6 +33,14 @@ module.exports = function (app) {
     });
     app.post("/api/company/login", function(request, response) {
         user.loginCompany(request, response);
+        // console.log(request.body.password, response.req.body.password)
+        // console.log(response);
+
+        // if (request.body.password !== response.req.body.password){
+        //     response.status(401).json({'error': 'improper login credentials'});
+        // } else {
+        //     console.log("Login Successful");
+        // }
     });
     app.post("api/influencer/login", function(request,response){
         user.loginInfluencer(request, response);
