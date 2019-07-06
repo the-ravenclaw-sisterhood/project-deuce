@@ -37,16 +37,16 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">email</i>
-                        <input id="business-email" type="email" class="validate">
-                        <label for="business-email">Email</label>
+                        <input id="business_email" type="email" class="validate">
+                        <label for="business_email">Email</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">lock</i>
-                        <input id="business-password" type="password" class="validate">
-                        <label for="business-password">Password</label>
+                        <input id="business_password" type="password" class="validate">
+                        <label for="business_password">Password</label>
                     </div>
                 </div>
 
@@ -69,7 +69,7 @@
                 <div class="row">
                     <div class="col s4"></div>
                     <div class="col s4" id="buttonLocation">
-                        <a class="waves-effect waves-light btn-large blue" id="business-SubmitBtn" href="/newUser">
+                        <a class="waves-effect waves-light btn-large blue" id="business-SubmitBtn" href="#/newUser">
                             <i class="material-icons right">done</i>Submit
                         </a>
                     </div>
@@ -84,5 +84,24 @@
 
 </section>
 
-
 <!-- Main Page -->
+
+{{!-- javascript --}}
+
+<script>
+    $(document).ready(function () {
+        $("#business-SubmitBtn").on("click", function(){
+            let newCompany = {
+                company_name: $("#business_name").val().trim(),
+                email: $("#business_email").val().trim(),
+                password: $("#business_password").val().trim(),
+                bio: $("#business_bio").val().trim(),
+                max_price: $("#business_max_price").val().trim(),
+            }
+
+            console.log(newCompany)
+        })
+
+    });
+
+</script>
