@@ -53,17 +53,8 @@ module.exports = function (app) {
     // });
     
 
-    app.delete("/api/company/:id", function(req, res) {
-        var condition = "email = " + req.params.email;
-      
-        cat.delete(condition, function(result) {
-          if (result.affectedRows == 0) {
-            // If no rows were changed, then the ID must not exist, so 404
-            return res.status(404).end();
-          } else {
-            res.status(200).end();
-          }
-        });
+    app.delete("/api/company/:id", function(request, response) {
+        user.removeUser(request, response);
       });
 
 
