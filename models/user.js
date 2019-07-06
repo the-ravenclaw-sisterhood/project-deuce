@@ -1,7 +1,8 @@
 let orm = require("./config/orm");
+require('../routes');
 
 let user = {
-    insertNewCompany: function(user, callback){
+    insertNewCompany: function (user, callback) {
         user.email = user.email.toLowerCase();
         let query = {
             table: 'company',
@@ -9,7 +10,7 @@ let user = {
         };
         orm.insert(query, callback);
     },
-    insertNewInfluencer: function(user, callback){
+    insertNewInfluencer: function (user, callback) {
         user.email = user.email.toLowerCase();
         let query = {
             table: 'influencer',
@@ -18,15 +19,54 @@ let user = {
         orm.insert(query, callback);
     },
 
-    getCompanyById: function(request, response){
-        orm.select({table: "company", column: "company_id", value: request.params.id}, function(error, data){
+    getCompanyById: function (request, response) {
+        orm.select({
+            table: "company",
+            column: "company_id",
+            value: request.params.id
+        }, function (error, data) {
             response.json(data);
         });
-      },
-    getInfluencerById: function(request, response){
-        orm.select({table: "influencer", column: "influencer_id", value: request.params.id}, function(error, data){
+    },
+
+    getInfluencerById: function (request, response) {
+        orm.select({
+            table: "influencer",
+            column: "influencer_id",
+            value: request.params.id
+        }, function (error, data) {
             response.json(data);
-          });
+        });
+    },
+
+    loginCompany: function (request, response) {
+        orm.select({
+            table: "company",
+            column: "email",
+            value: request.body.email
+        }, function(error, result){
+            response.json(result);
+            if (request.body.password === result[0].password){
+                console.log("Login Success");
+            } else {
+                console.log("improper login credentials")
+            }
+        });
+    },
+
+    loginInfluencer: function (request, response) {
+        orm.select({
+            table: "influencer",
+            column: "email",
+            value: request.body.email
+        }, function(error, result){
+            response.json(result);
+            if (request.body.password === result[0].password){
+                response.redirect("/api/influencer");
+            } else {
+                console.log("improper login credentials")
+            }
+        });
     },
 
     // selectByCompanyEmail: function(email, callback){
@@ -74,6 +114,7 @@ let user = {
         orm.selectAll("influencer", function (res) {
             cb(res);
         });
+
     },
 
 
@@ -126,4 +167,5 @@ let user = {
         // },
     };
 
-    module.exports = user;
+
+module.exports = user;

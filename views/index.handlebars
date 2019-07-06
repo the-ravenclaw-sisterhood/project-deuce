@@ -86,13 +86,13 @@
 
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="buspassword" type="password" class="validate">
-                                <label for="buspassword">Password</label>
+                                <input id="busPassword" type="password" class="validate">
+                                <label for="busPassword">Password</label>
                             </div>
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="/api/company" class="waves-effect waves-light btn blue">Login</a>
+                        <a href="/api/company" class="waves-effect waves-light btn blue" id="busLogin">Login</a>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="card-action">
-                        <a href="/api/influencer" class="waves-effect waves-light btn blue">Login</a>
+                        <a href="/api/influencer" class="waves-effect waves-light btn blue" id="infLogin">Login</a>
                     </div>
                 </div>
             </div>
@@ -187,26 +187,25 @@
 
         $('.parallax').parallax();
 
+    });
 
-        $("#loginSubmitBtn").on("click", function () {
-            var emailVerif = $("#email").val().trim();
-            var passVerif = $("#password").val().trim();
+    $("#busLogin").on("click", function () {
+        let busVerification = {
+            email: $("#busEmail").val(),
+            password: $("#busPassword").val()
+        };
 
-            var verification = {
-                email: emailVerif,
-                password: passVerif
-            }
+        $.post("/api/company/login", busVerification);
+    });
 
-            $.ajax("/api/company/login", {
-                type: "POST",
-                data: verification
-            }).then(
-                function () {
-                    console.log("Logged IN!");
-                }
-            )
-        });
+    $("#infLogin").on("click", function () {
+        let infVerification = {
+            email: $("#infEmail").val(),
+            password: $("#infPassword").val()
+        };
 
+        console.log(infVerification);
+        $.post("/api/influencer/login", infVerification);
 
     });
 

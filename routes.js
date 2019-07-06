@@ -37,12 +37,12 @@ module.exports = function (app) {
     app.post("/api/influencer", function(request, response) {
         user.createInfluencer(request, response);
     });
-    // app.post("/api/company/login", function(request, response) {
-    //     user.login(request, response);
-    // });
-    // app.post("api/influencer/login", function(request,response){
-    //     user.login(request, response);
-    // })
+    app.post("/api/company/login", function(request, response) {
+        user.loginCompany(request, response);
+    });
+    app.post("/api/influencer/login", function(request,response){
+        user.loginInfluencer(request, response);
+    })
     // app.delete("/api/company/login", function(request, response) {
     //     user.logout(request, response);
     // });
