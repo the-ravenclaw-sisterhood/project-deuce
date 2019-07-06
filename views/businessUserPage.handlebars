@@ -26,11 +26,36 @@
     </div>
     <div class="section white">
         <div class="row container">
-            <h2 class="header">Business Name</h2>
-            <p class="grey-text text-darken-3 lighten-3">This will show some content explaining the app to
-                the user.
+            <h2 class="header">Nike</h2>
+            <p class="grey-text text-darken-3 lighten-3">Click on the photo see more info.
             </p>
-
+                <h2>Recently Contacted</h2>
+            <div class="row">
+                {{!-- {{#each influencer}} --}}
+                <div class="col s4">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img class="activator" src="/assets/images/background_app.jpg">
+                            <span class="card-title" id="influencer-name">Hanzel Bread</span>
+                            <a class="btn-floating halfway-fab waves-effect waves-light tooltipped blue"
+                                data-position="top" data-tooltip="Message Me!" id="chatButton">
+                                <i class="material-icons">message</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p><a href="#">View profile link</a></p>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">About Me<i
+                                    class="material-icons right">close</i></span>
+                            <p id="about-influecer">
+                                Hi, I'm Hanzel
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{!-- {{/each}} --}}
+            </div>
+            <h2>View More</h2>
             <div class="row">
                 {{#each influencer}}
                 <div class="col s4">
