@@ -88,13 +88,13 @@ let user = {
         })
       },
 
-      updateInfluencer: function(request, response){
-        console.log(request.body)
-        orm.update({
-            table: "influencer",
-            column
-        })
-      },
+    //   updateInfluencer: function(request, response){
+    //     console.log(request.body)
+    //     orm.update({
+    //         table: "influencer",
+    //         column1: 
+    //     })
+    //   },
 
     // selectByCompanyEmail: function(email, callback){
     //     let query = {
